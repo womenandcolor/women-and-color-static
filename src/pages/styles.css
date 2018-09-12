@@ -1,0 +1,166 @@
+.container {
+  composes: centeredContainer from 'sharedStyles/styles.css';
+}
+
+.title {
+  composes: h1 from 'sharedStyles/styles.css';
+}
+
+.slogan {
+  composes: h2 from 'sharedStyles/styles.css';
+}
+
+// Sidebar
+
+.sidebar {
+  height: 100%;
+  width: 192px;
+}
+
+.sidebarTitles {
+  height: 21px;
+  width: 100%; /* 192px; */
+  color: #212121;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 8px;
+}
+
+// Content
+
+.contentContainer {
+  padding-top: 2rem;
+}
+
+.contentTitles {
+  color: #000000;
+  background: #ffffff;
+  font-family: 'Open Sans';
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 40px;
+  padding: 10px;
+}
+
+.contentCard {
+  background-color: #ffffff;
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  justify-content: space-between;
+}
+
+.contentCard > div {
+  margin: 10px;
+}
+
+.info {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.info a {
+  text-decoration: none;
+}
+
+.info a:hover {
+  text-decoration: underline;
+  text-decoration-color: #000000;
+}
+
+.info h3 {
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.name {
+  color: #000000;
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.speakerTitle {
+  color: #424242;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.speakerPhoto {
+  max-width: 112px;
+  margin: auto;
+}
+
+.speakerTags {
+  color: #757575;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.speakersList {
+  margin-bottom: 2rem !important;
+}
+
+.noResults {
+  margin: 2rem 0;
+}
+
+.filterLabel {
+  background-color: var(--color-grey-pale);
+  color: var(--color-grey-dark);
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+.filterOpen {
+  background-color: var(--color-inverted-light)
+}
+
+.filterLabelContainer {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.filtersContainer {
+  padding-right: 1rem;
+}
+
+.mobileSearchInput input {
+  color: var(--color-primary);
+  font-weight: 400;
+  padding-right: 1rem;
+}
+
+.mobileSearchInput input::placeholder {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+@media (max-width: 960px) {
+  .separator,
+  .organization {
+    display: none;
+  }
+
+  .content {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .contentTitles {
+    padding: 1rem;
+  }
+}
