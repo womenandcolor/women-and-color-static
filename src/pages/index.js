@@ -18,7 +18,7 @@ import { get as getLocations } from 'appRedux/modules/location';
 import { DEFAULT_SPEAKER_LIMIT } from 'appHelpers/constants';
 import DefaultLayout from '../components/layouts/Default';
 
-import css from './styles.module.css';
+import css from 'appAssets/css/index.module.css';
 
 
 const searchParamsToSpeakerIdentity = ({ poc, woman }) => {

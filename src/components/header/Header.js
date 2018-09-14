@@ -14,7 +14,7 @@ import StyledButton from 'appCommon/StyledButton';
 import { updateSearchParams } from 'appRedux/modules/speaker';
 import { searchForm } from 'appAssets/css/styles.module.css';
 
-import css from './header.module.css';
+import css from 'appAssets/css/header.module.css';
 
 
 class Banner extends Component {

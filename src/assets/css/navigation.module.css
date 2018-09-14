@@ -67,3 +67,11 @@
   right: 50px;
 }
 
+.searchForm {
+  padding-left: 2px;
+}
+
+.searchButton {
+  height: '100%';
+}
+

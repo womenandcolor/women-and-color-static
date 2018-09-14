@@ -8,17 +8,9 @@ import { connect } from 'react-redux'
 // APP
 import StyledButton from 'appCommon/StyledButton';
 import { updateSearchParams } from 'appRedux/modules/speaker';
-import css from './styles.module.css';
-// import { searchForm, hideOnMobile } from '../../sharedStyles/styles.module.css';
+import css from 'appAssets/css/navigation.module.css';
+import { searchForm, hideOnMobile } from 'appAssets/css/styles.module.css';
 
-const styles = {
-  form: {
-    paddingLeft: '2px'
-  },
-  searchButton: {
-    height: '100%'
-  }
-}
 
 class SearchField extends Component {
   constructor(props) {
@@ -61,8 +53,8 @@ class SearchField extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.searchProfiles} className={`${'searchForm'} ${'hideOnMobile'}`} style={styles.form}>
-          <IconButton color="secondary" type="submit" style={styles.searchButton}>
+        <form onSubmit={this.searchProfiles} className={`${searchForm} ${hideOnMobile} ${css.searchForm}`}>
+          <IconButton color="secondary" type="submit" className={css.searchButton}>
             <SearchIcon />
           </IconButton>
           <TextField
