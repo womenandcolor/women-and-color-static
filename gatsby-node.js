@@ -18,7 +18,6 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
         appRedux: path.resolve(__dirname, 'src/redux/'),
         appHelpers: path.resolve(__dirname, 'src/utils/'),
         appAssets: path.resolve(__dirname, 'src/assets/'),
-        appSharedStyles: path.resolve(__dirname, 'src/sharedStyles/'),
       },
     },
   })

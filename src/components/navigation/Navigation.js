@@ -13,7 +13,7 @@ import { link } from './styles.module.css';
 import SearchField from './SearchField';
 import MenuDropdown from './MenuDropdown';
 import ButtonMenu from './ButtonMenu';
-import Logo from '../../assets/logo_women_and_color.svg';
+import Logo from '../../assets/images/logo_women_and_color.svg';
 import { logout, validateToken } from 'appRedux/modules/user'
 
 const styles = theme => ({

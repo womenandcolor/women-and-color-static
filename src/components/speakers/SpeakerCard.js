@@ -11,9 +11,8 @@ import StyledButton from 'appCommon/StyledButton';
 import Topics from './Topics';
 import { updateSearchParams } from 'appRedux/modules/speaker';
 
-// import css from '../../pages/styles.css';
-// import { profilePhoto } from 'appSharedStyles/styles.css'
-const css = {};
+import css from '../../pages/styles.module.css';
+import { profilePhoto } from 'appAssets/css/styles.module.css'
 
 function buildTitle(position, organization) {
   let separator;
@@ -45,7 +44,7 @@ const SpeakerCard = ({ speaker, classes }) => {
       <Grid container spacing={16}>
         <Grid item xs={3} md={3}>
           <div className={css.speakerPhoto}>
-          <Link to={speakerProfilePath} className={'profilePhoto'}>
+          <Link to={speakerProfilePath} className={profilePhoto}>
             <img src={speaker.image} alt={name} />
           </Link>
           </div>

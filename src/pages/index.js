@@ -2,6 +2,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
 import { find } from 'lodash';
 import { Helmet } from "react-helmet";
 
@@ -15,7 +16,9 @@ import Header from '../components/header/Header';
 import { fetchSpeakers, updateSearchParams } from 'appRedux/modules/speaker';
 import { get as getLocations } from 'appRedux/modules/location';
 import { DEFAULT_SPEAKER_LIMIT } from 'appHelpers/constants';
-import Layout from '../components/layout'
+import DefaultLayout from '../components/layouts/Default';
+
+import css from './styles.module.css';
 
 
 const searchParamsToSpeakerIdentity = ({ poc, woman }) => {
@@ -44,18 +47,30 @@ const Home = ({
   const speakerIdentity = searchParamsToSpeakerIdentity(searchParams);
 
   return (
-    <Layout {...rest} >
+    <DefaultLayout {...rest} >
       <Grid container justify="center" spacing={0}>
         <Grid item xs={12}>
           <Header />
         </Grid>
         <Grid item xs={12} md={9}>
           <Grid container spacing={0}>
+            <Hidden smDown>
+              <Grid item md={3} className={css.filtersContainer}>
+                <Filters locations={locations} selectedLocation={locationObj} />
+              </Grid>
+            </Hidden>
+
+            <Hidden mdUp>
+              <Grid item xs={12}>
+                <MobileSearch />
+                <MobileFilters locations={locations} />
+              </Grid>
+            </Hidden>
 
             <Grid item xs={12} md={9}>
               <Grid container spacing={0}>
                 <Grid item xs={12}>
-                  <div className={"contentTitle"}>
+                  <div className={css.contentTitles}>
                     {`${speakerIdentity} in ${location} for ${searchQuery}`}
                   </div>
                 </Grid>
@@ -69,7 +84,7 @@ const Home = ({
           </Grid>
         </Grid>
       </Grid>
-    </Layout>
+    </DefaultLayout>
   );
 };
 

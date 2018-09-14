@@ -9,9 +9,9 @@ import faSlack from '@fortawesome/fontawesome-free-brands/faSlack';
 import { Link } from 'gatsby';
 
 // APP
-import css from './styles.module.css';
-import Tribalscale from '../../assets/Tribalscale.svg';
-import Wealthsimple from '../../assets/Wealthsimple.svg';
+import css from 'appAssets/css/footer.module.css';
+import Tribalscale from '../../assets/images/Tribalscale.svg';
+import Wealthsimple from '../../assets/images/Wealthsimple.svg';
 
 const FullFooter = () => {
   return (

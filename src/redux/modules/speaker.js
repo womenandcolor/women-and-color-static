@@ -1,7 +1,7 @@
 // NPM
 import { map, compact, uniqBy } from 'lodash';
 import { equals } from 'ramda';
-import { push } from 'gatsby';
+import { navigate } from 'gatsby';
 import axios from 'axios';
 
 // App
@@ -45,7 +45,7 @@ export function fetchSpeakers(params = {}) {
     axios
       .get(`${BASE_URL_PATH}/api/v1/profiles?${queryStringforApi}`)
       .then(res => {
-        dispatch(push(`?${queryStringforDisplay}`))
+        navigate(`?${queryStringforDisplay}`)
         dispatch(updateSpeakers(res.data, params.append));
       })
       .catch(err => console.log(err));
@@ -61,13 +61,13 @@ export function getSpeaker(id, fullName = '') {
         dispatch(updateSpeaker(res.data));
         if (!equals(fullName, speakerToNamePath(res.data))) {
           const speakerProfilePath = speakerToProfilePath(res.data);
-          dispatch(push(speakerProfilePath));
+          navigate(speakerProfilePath);
         }
       })
       .catch(err => {
         console.log('err', err)
         dispatch(showNotification('This profile is not available.'))
-        dispatch(push('/'))
+        navigate('/');
       });
   };
 }

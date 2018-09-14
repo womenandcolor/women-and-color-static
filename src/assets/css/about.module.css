@@ -1,0 +1,28 @@
+.header {
+  background-color: var(--color-grey-pale);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  text-align: center;
+}
+
+.title {
+  color: var(--color-grey-dark);
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  font-weight: 300;
+}
+
+.strong {
+  font-weight: 600;
+  color: var(--color-grey-dark);
+}
+
+.body {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  font-weight: 300;
+  color: var(--color-grey-dark);
+}

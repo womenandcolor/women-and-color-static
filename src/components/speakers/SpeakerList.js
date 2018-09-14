@@ -5,8 +5,7 @@ import Grid from '@material-ui/core/Grid';
 // APP
 import SpeakerCard from './SpeakerCard';
 import StyledButton from 'appCommon/StyledButton';
-// import css from '../../pages/styles.css';
-const css = {};
+import css from '../../pages/styles.module.css';
 
 const SpeakerList = ({ speakers, endOfResults, loadMoreSpeakers }) => {
   const noResults = speakers.length === 0;

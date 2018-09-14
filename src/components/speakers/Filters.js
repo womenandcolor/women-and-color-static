@@ -2,18 +2,19 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
-import List, { ListItem, ListItemText } from '@material-ui/core/List';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { map, find } from 'lodash';
 
 // APP
-// import css from '../styles.css';
+import css from '../../pages/styles.module.css';
 import { updateSearchParams, fetchSpeakers } from 'appRedux/modules/speaker';
 import { IDENTITIES, DEFAULT_SPEAKER_LIMIT } from 'appHelpers/constants';
 
-const css = {};
 const styles = theme => ({
   primary: {
     fontWeight: '600',

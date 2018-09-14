@@ -1,13 +1,13 @@
 .container {
-  composes: centeredContainer from 'sharedStyles/styles.css';
+  composes: centeredContainer from 'appAssets/css/styles.module.css';
 }
 
 .title {
-  composes: h1 from 'sharedStyles/styles.css';
+  composes: h1 from 'appAssets/css/styles.module.css';
 }
 
 .slogan {
-  composes: h2 from 'sharedStyles/styles.css';
+  composes: h2 from 'appAssets/css/styles.module.css';
 }
 
 // Sidebar

@@ -3,7 +3,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
 // APP
-import css from './styles.module.css';
+import css from 'appAssets/css/footer.module.css';
 
 const MiniFooter = () => {
   return (
@@ -12,9 +12,9 @@ const MiniFooter = () => {
         <Grid item xs={11} md={9}>
           <Grid container justify="space-between" className={css.alignCenterOnMobile}>
             <Grid item xs={12} md={6}>
-              <a href="/#/terms">Terms of Service</a>
-              <a href="/#/privacy">Privacy Policy</a>
-              <a href="/#/code-of-conduct">Code of Conduct</a>
+              <a href="/terms">Terms of Service</a>
+              <a href="/privacy">Privacy Policy</a>
+              <a href="/code-of-conduct">Code of Conduct</a>
             </Grid>
             <Grid item xs={12} md={6} className={`${css.alignRight} ${css.alignCenterOnMobile}`}>
               &copy; 2016 - 2018 Women and Color
@@ -25,6 +25,5 @@ const MiniFooter = () => {
     </footer>
   )
 }
-
 
 export default MiniFooter;

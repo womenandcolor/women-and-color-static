@@ -12,43 +12,10 @@ import { connect } from 'react-redux';
 // APP
 import StyledButton from 'appCommon/StyledButton';
 import { updateSearchParams } from 'appRedux/modules/speaker';
-// import { searchForm } from '../sharedStyles/styles.css';
-// import css from './styles.css';
-const css = {};
+import { searchForm } from 'appAssets/css/styles.module.css';
 
-const styles = theme => ({
-  searchButton: {
-    height: '100%'
-  },
-  banner: {
-    backgroundColor: theme.palette.primary.main,
-    paddingTop: '6rem',
-    paddingBottom: '6rem',
-    marginBottom: '2rem',
-    background: "url('https://s3.ca-central-1.amazonaws.com/womenandcolor/background-image.jpg') no-repeat center center fixed",
-    backgroundSize: 'cover',
-  },
-  headline: {
-    fontSize: '2rem',
-    color: theme.palette.primary.contrastText,
-    marginBottom: '2rem',
-    fontWeight: '100'
-  },
-  highlight: {
-    fontWeight: '600'
-  },
-  searchForm: {
-    backgroundColor: theme.palette.primary.contrastText,
-    paddingTop: '1rem',
-    paddingBottom: '1rem'
-  },
-  textField: {
-    marginRight: '1rem'
-  },
-  searchIcon: {
-    marginRight: '1rem'
-  }
-});
+import css from './header.module.css';
+
 
 class Banner extends Component {
   constructor(props) {
@@ -103,7 +70,7 @@ class Banner extends Component {
             Find talented <span className={css.highlight}>women and people of color</span> available for speaking opportunities at tech-related events.
           </h2>
           <Hidden smDown>
-            <form onSubmit={this.searchProfiles} className={`${'searchForm'} ${css.searchForm}`}>
+            <form onSubmit={this.searchProfiles} className={`${searchForm} ${css.searchForm}`}>
               <Hidden only='xs'>
                 <SearchIcon className={css.searchIcon} />
               </Hidden>

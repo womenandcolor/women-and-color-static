@@ -8,7 +8,7 @@ const ButtonMenu = props => {
         props.authed && <StyledButton onClick={props.logout} color={'secondary'}>Log out</StyledButton>
       }
       {props.menuItems.map(item => {
-        const link = `/#${item.slug}`;
+        const link = `${item.slug}`;
         return (
           <StyledButton key={item.slug} color={item.color} href={link}>
             {item.title}

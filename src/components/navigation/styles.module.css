@@ -41,18 +41,18 @@
   color: #1877E6;
 }
 
-/*.speakerButton {
-  composes: button-primary from 'sharedStyles/styles.css';
+.speakerButton {
+  composes: button-primary from 'appAssets/css/styles.module.css';
 }
 
 .searchForSpeaker {
-  composes: input from 'sharedStyles/styles.css';
+  composes: input from 'appAssets/css/styles.module.css';
 }
 
 .hamburgerIcon {
-  composes: button from 'sharedStyles/styles.css';
+  composes: button from 'appAssets/css/styles.module.css';
   font-size: 1.4rem;
-}*/
+}
 
 .animatedSearchForm {
   transition: all 0.4s ease-in-out;

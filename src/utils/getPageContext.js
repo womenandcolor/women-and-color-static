@@ -1,106 +1,38 @@
-/* eslint-disable no-underscore-dangle */
-
 import { SheetsRegistry } from 'jss';
 import { createMuiTheme, createGenerateClassName } from '@material-ui/core/styles';
+import indigo from '@material-ui/core/colors/indigo';
 
 // A theme with custom primary and secondary color.
 // It's optional.
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: "#ddf2f1",
-      main: "#01b4aa", // teal
-      dark: "#004440",
-      contrastText: "#fff",
+      light: '#E5E8F4',
+      main: '#283CA7',
+      dark: '#001777',
+      contrastText: '#fff',
     },
     secondary: {
-      light: "#eee5eb",
-      main: "#e70094", // pink
-      dark: "941c5b",
-      contrastText: "#fff",
+      light: '#f5f5f5',
+      main: '#e0e0e0',
+      dark: '#757575',
+      contrastText: '#000000',
     },
-    error: {
-      light: "#f4ecdb",
-      main: "#f7a700", // yellow
-      dark: "#a46f00",
-    },
+    error: indigo,
     background: {
-      default: "#fff",
-    }
+      paper: '#FFF',
+      default: '#FFF',
+    },
   },
   typography: {
-    fontFamily: `'Trebuchet MS', 'Fira Sans', sans-serif`,
-    fontSize: 18,
+    fontFamily: `"Open Sans", "Helvetica", "Arial", sans-serif`,
+    fontSize: 16,
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 600,
-    color: 'hsla(0, 0%, 0%, .8)',
-    display1: {
-      fontFamily: `'Bebas Neue', 'Trade Gothic', serif`,
-      letterSpacing: "0.05rem",
-      textTransform: "uppercase",
-      fontSize: "3.333em",
-      color: 'hsla(0, 0%, 0%, .8)',
-      fontWeight: 700,
-    },
-    display2: {
-      fontFamily: `'Bebas Neue', 'Trade Gothic', serif`,
-      letterSpacing: "0.05rem",
-      textTransform: "uppercase",
-      fontSize: "2.222em",
-      color: 'hsla(0, 0%, 0%, .8)',
-      fontWeight: 700,
-    },
-    display3: {
-      fontFamily: `'Bebas Neue', 'Trade Gothic', serif`,
-      letterSpacing: "0.05rem",
-      textTransform: "uppercase",
-      fontSize: "1.667em",
-      color: 'hsla(0, 0%, 0%, .8)',
-      fontWeight: 700,
-    },
-    display4: {
-      fontFamily: `'Trebuchet MS', 'Fira Sans', sans-serif`,
-      textTransform: "none",
-      fontSize: "1.14em",
-      color: 'hsla(0, 0%, 0%, .8)',
-      fontWeight: 700,
-    },
-    title: {
-      fontFamily: `'Bebas Neue', 'Trade Gothic', serif`,
-      letterSpacing: "0.05rem",
-      textTransform: "uppercase",
-      color: 'hsla(0, 0%, 0%, .8)',
-      fontWeight: 700,
-    },
-    headline: {
-      fontFamily: `'Bebas Neue', 'Trade Gothic', serif`,
-      letterSpacing: "0.05rem",
-      textTransform: "uppercase",
-      fontSize: "1.667em",
-      color: 'hsla(0, 0%, 0%, .8)',
-      fontWeight: 700,
-      borderBottom: "2px solid #e70094",
-      marginBottom: "1em",
-    },
-    button: {
-      textTransform: "none",
-      color: "#fff",
-    },
-    body1: {
-      fontFamily: `'Trebuchet MS', 'Fira Sans', sans-serif`,
-      fontSize: 18,
-      fontWeightLight: 300,
-      fontWeightRegular: 400,
-      fontWeightMedium: 500,
-      color: 'hsla(0, 0%, 0%, .8)',
-    },
-  },
-  status: {
-    danger: "#f7a700",
+    color: '#000',
   }
 });
-
 
 function createPageContext() {
   return {
