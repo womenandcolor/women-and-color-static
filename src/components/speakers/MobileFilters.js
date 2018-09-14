@@ -1,30 +1,21 @@
 // NPM
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
 import FilterList from '@material-ui/icons/FilterList';
 import Close from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
-import Hidden from '@material-ui/core/Hidden';
 import Modal from '@material-ui/core/Modal';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { map } from 'lodash';
 
 // APP
-// import css from '../../pages/styles.css';
-import { updateSearchParams, updateSelection, fetchSpeakers } from 'appRedux/modules/speaker';
-import { IDENTITIES, DEFAULT_SPEAKER_LIMIT } from 'appHelpers/constants';
+import css from 'appAssets/css/index.module.css';
+import { updateSearchParams, fetchSpeakers } from 'appRedux/modules/speaker';
+import { DEFAULT_SPEAKER_LIMIT } from 'appHelpers/constants';
 import Filters from './Filters'
 import StyledButton from 'appCommon/StyledButton';
 
-const css = {};
 const styles = {
   closeButton: {
     textAlign: 'right',
@@ -47,7 +38,7 @@ class MobileFilters extends Component {
       if (!dict[country]) {
         dict[country] = [];
       }
-      dict[country].push(location);
+      return dict[country].push(location);
     });
 
     return dict;
@@ -76,7 +67,6 @@ class MobileFilters extends Component {
       limit: DEFAULT_SPEAKER_LIMIT,
       append: false,
     });
-    this.props.updateSelection({ selectedLocation: location.id });
   };
 
   handleSelectIdentity = identity => {
@@ -86,12 +76,9 @@ class MobileFilters extends Component {
       limit: DEFAULT_SPEAKER_LIMIT,
       append: false,
     });
-    this.props.updateSelection({ selectedIdentity: identity.label });
   };
 
   render() {
-    const locations = this.createLocationDict(this.props.locations, {});
-
     return (
       <div>
         <div className={css.filterLabel} onClick={this.handleOpen}>
@@ -146,9 +133,6 @@ const mapDispatchToProps = dispatch => {
   return {
     updateSearchParams: params => {
       dispatch(updateSearchParams(params));
-    },
-    updateSelection: selected => {
-      dispatch(updateSelection(selected));
     },
     fetchSpeakers: params => {
       dispatch(fetchSpeakers(params));

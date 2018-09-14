@@ -19,9 +19,7 @@ import {
   OnChange,
 } from './action_template';
 import {
-  get as getProfile,
   getSuccess as getProfileSuccess,
-  update as updateProfile,
   logoutSuccess as logoutProfile,
 } from 'appRedux/modules/profile';
 
@@ -220,7 +218,6 @@ export function update() {
   return (dispatch, getState) => {
     dispatch(putRequest());
     const { user } = getState();
-    const page = user.page;
     const token = getApiToken();
     const authHeader = token ? { Authorization: `JWT ${token}` } : {};
 
@@ -521,7 +518,7 @@ export const reducer = (state = initialState, action) => {
       };
     }
 
-    case GetError(MODULE_NAME): {
+    case PostError(MODULE_NAME): {
       return {
         ...state,
       };

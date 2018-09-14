@@ -1,0 +1,128 @@
+/* SpeakerCard */
+
+.speakerCard {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.speakerCardInfo {
+  text-align: center;
+  width: 100%;
+}
+
+.speakerCardName {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--color-grey-dark);
+}
+
+.speakerCardTitle {
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.speakerCardOrganization {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.speakerCardTags {
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.topicLinks a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 0.9;
+}
+
+.topicLinks a:hover, .topicLinks a:focus {
+  text-decoration: underline;
+}
+
+.socialLinks a {
+  color: var(--color-grey-dark);
+  text-decoration: none;
+}
+
+.socialLinks a:hover, .socialLinks a:focus {
+  text-decoration: underline;
+}
+
+/* Speaker Info */
+
+.speakerInfo {
+  margin-bottom: 4rem;
+}
+
+.sectionHeader {
+  font-size: 2rem;
+  color: var(--color-grey-dark);
+  font-weight: var(--font-weight-light);
+  margin-top: 0.5rem;
+}
+
+.sectionSubHeader {
+  color: var(--color-grey-dark);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-grey-light);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 0;
+}
+
+.speakerInfoDescription {
+  color: var(--color-grey-dark);
+  margin-bottom: 0;
+}
+
+/* FeaturedTalks */
+
+.talksWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.talkCardContainer {
+  padding: 1rem 0.5rem;
+}
+
+.talkCard {
+  max-height: 400px;
+  overflow: hidden;
+}
+
+@media (min-width: 576px) {
+  .talkCard {
+    flex: 0 1 calc(50% - 1rem);
+  }
+}
+
+.talkCardImage {
+  height: 14rem;
+  border-radius: 2px 2px 0 0;
+  background-color: var(--color-secondary);
+}
+
+.talkCardHeader {
+  font-size: 1rem;
+  color: var(--color-grey-dark);
+  font-weight: var(--font-weight-semibold);
+  margin-top: 0;
+}
+
+.talkCardLink {
+  /* todo color, text-decoration, etc */
+}
+
+/* MessageSpeakerForm */

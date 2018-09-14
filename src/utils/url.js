@@ -1,6 +1,6 @@
 import { pipe, replace, join, filter, map, trim, always, ifElse } from 'ramda';
 
-import { hasValue, isNil } from './validation';
+import { hasValue } from './validation';
 
 // Anything that is not a-z A-Z
 const omittedNameCharacters = /[^a-zA-Z]/g;

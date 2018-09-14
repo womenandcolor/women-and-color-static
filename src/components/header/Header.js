@@ -1,10 +1,8 @@
 // NPM
-import React, { PropTypes, Component } from 'react'
-// import {withRouter} from 'react-router-dom'
-import IconButton from '@material-ui/core/IconButton';
+import React, { Component } from 'react';
+import { navigate } from 'gatsby';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import { connect } from 'react-redux';
@@ -17,15 +15,15 @@ import { searchForm } from 'appAssets/css/styles.module.css';
 import css from 'appAssets/css/header.module.css';
 
 
-class Banner extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
     this.state = { query: this.props.q || '' }
   }
 
-  componentWillReceiveProps(newProps) {
-    if (this.props.q !== newProps.q) {
-      const query = newProps.q || '';
+  componentDidUpdate(prevProps) {
+    if (this.props.q !== prevProps.q) {
+      const query = this.props.q || '';
       this.setState({ query })
     }
   }
@@ -33,8 +31,8 @@ class Banner extends Component {
   searchProfiles = (event) => {
     event.preventDefault();
     const home = '/'
-    if (this.props.history.location.pathname !== home) {
-      this.props.history.push(home)
+    if (this.props.location.pathname !== home) {
+      navigate(home)
     }
     const query = this.state.query;
     this.props.updateSearchParams({
@@ -50,8 +48,8 @@ class Banner extends Component {
     this.setState({ query });
     if (!query) {
       const home = '/'
-      if (this.props.history.location.pathname !== home) {
-        this.props.history.push(home)
+      if (this.props.location.pathname !== home) {
+        navigate(home)
       }
       this.props.updateSearchParams({
         q: null,
@@ -117,4 +115,4 @@ function mapStateToProps(state) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Banner);
+)(Header);

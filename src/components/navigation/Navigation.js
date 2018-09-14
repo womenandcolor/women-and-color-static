@@ -9,8 +9,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // App
-import { link } from './styles.module.css';
-import SearchField from './SearchField';
 import MenuDropdown from './MenuDropdown';
 import ButtonMenu from './ButtonMenu';
 import Logo from '../../assets/images/logo_women_and_color.svg';
@@ -62,7 +60,7 @@ const loggedInMenuItems = profileId => {
 
 
 class Navigation extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.validateToken()
   }
 
@@ -81,7 +79,6 @@ class Navigation extends Component {
   render() {
     const {
       classes,
-      updateSearchParams,
       location,
       user,
       profile,
@@ -99,10 +96,10 @@ class Navigation extends Component {
                 <Grid container justify="space-between" alignItems="center">
                   <Grid item xs={6} sm={4} md={3}>
                     <a
-                      href="/#/"
+                      href="/"
                       style={{ textDecoration: 'none' }}
                     >
-                      <img src={Logo} height="50px" width="100%" />
+                      <img src={Logo} height="50px" width="100%" alt={'Women and Color logo'}/>
                     </a>
                   </Grid>
                   <Grid item xs={6} md={4}>

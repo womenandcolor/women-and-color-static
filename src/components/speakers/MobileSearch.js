@@ -1,6 +1,6 @@
 // NPM
-import React, { PropTypes, Component } from 'react'
-// import {withRouter} from 'react-router-dom'
+import React, { Component } from 'react'
+import { navigate } from 'gatsby'
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
@@ -9,10 +9,9 @@ import { withStyles } from '@material-ui/core/styles';
 
 
 // APP
-import StyledButton from 'appCommon/StyledButton';
 import { updateSearchParams } from 'appRedux/modules/speaker';
-// import css from '../../pages/styles.css';
-const css = {};
+import css from 'appAssets/css/index.module.css';
+
 const styles = theme => ({
   form: {
     height: '48px',
@@ -38,8 +37,8 @@ class MobileSearch extends Component {
     event.preventDefault();
     const query = this.state.query;
     const home = '/'
-    if (this.props.history.location.pathname !== home) {
-      this.props.history.push(home)
+    if (this.props.location.pathname !== home) {
+      navigate(home)
     }
     this.props.updateSearchParams({
       q: query,
@@ -54,8 +53,8 @@ class MobileSearch extends Component {
     this.setState({ query });
     if (!query) {
       const home = '/'
-      if (this.props.history.location.pathname !== home) {
-        this.props.history.push(home)
+      if (this.props.location.pathname !== home) {
+        navigate(home)
       }
       this.props.updateSearchParams({
         q: null,

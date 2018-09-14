@@ -1,8 +1,7 @@
-import { map, compact, uniqBy } from 'lodash';
+import { map, compact } from 'lodash';
 import { VALID_PARAMS } from './constants';
 
 export const generateQueryString = (opts = { params: {}, display: false }) => {
-  const apiOnlyParams = ['limit', 'offset'];
   const queryParams = map(opts.params, (v, k) => {
     if (!!v) {
       if (opts.display && (k === 'limit' || k === 'offset' || k === 'append')) {
@@ -23,8 +22,10 @@ export const parseQueryString = (queryString, params = {}) => {
     const match = regex.exec(queryString);
     if (match) {
       const val = match[1];
-      params[paramKey] = val;
+      return params[paramKey] = val;
     }
+
+    return null;
   });
 
   return params;

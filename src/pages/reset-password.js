@@ -1,15 +1,8 @@
 // Project
-import React, { Component }  from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Card from '@material-ui/core/Card';
-import { Link } from 'gatsby';
 
 // App
 import {
@@ -52,27 +45,21 @@ const ResetPassword = ({ handleUserInputChange, handleSubmit, ...rest }) => {
 }
 
 
-class ResetPasswordContainer extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return(
-      <div>
-        <ResetPassword
-          handleSubmit={event => {
-            event.preventDefault();
-            this.props.submitForm();
-          }}
-          handleUserInputChange={(field, value) => {
-            this.props.onChangeUser({ [field]: value })
-          }}
-          {...this.props}
-        />
-      </div>
-    )
-  }
+const ResetPasswordContainer = props => {
+  return(
+    <div>
+      <ResetPassword
+        handleSubmit={event => {
+          event.preventDefault();
+          props.submitForm();
+        }}
+        handleUserInputChange={(field, value) => {
+          props.onChangeUser({ [field]: value })
+        }}
+        {...props}
+      />
+    </div>
+  )
 }
 
 function mapStateToProps(state) {

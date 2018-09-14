@@ -30,11 +30,11 @@ const FullFooter = () => {
             alignItems="center"
             className={css.partnerLogos}
           >
-            <a href="https://www.wealthsimple.com" target="_blank">
-              <img src={Wealthsimple} />
+            <a href="https://www.wealthsimple.com" target="_blank" rel="noopener noreferrer">
+              <img src={Wealthsimple} alt={'Wealth Simple'} />
             </a>
-            <a href="http://www.tribalscale.com" target="_blank">
-              <img src={Tribalscale} />
+            <a href="http://www.tribalscale.com" target="_blank" rel="noopener noreferrer">
+              <img src={Tribalscale} alt={'TribalScale'} />
             </a>
           </Grid>
         </Grid>
@@ -50,7 +50,7 @@ const FullFooter = () => {
           <Grid container justify="space-between" spacing={0}>
             <Grid item xs={12} sm={8} className={css.verticalOnMobile}>
               <Link to="/about">About us</Link>
-              <a href="http://eepurl.com/dFaJHb" target="_blank">Stay in touch</a>
+              <a href="http://eepurl.com/dFaJHb" target="_blank" rel="noopener noreferrer">Stay in touch</a>
             </Grid>
             <Grid
               item
@@ -61,21 +61,24 @@ const FullFooter = () => {
               <a
                 href="https://join.slack.com/t/womenandcolor/shared_invite/enQtNDE5MDA4MjU4MTQ5LTY4NGYxMjAyODJiODhkMDU3NjEwZmQyYWMzMWQ1ZjAwNjYzYmY5ZmIxNzRkMDM1ZjUwOTc5MjQ0NmFkMzNjMTY"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faSlack} size="lg" />
               </a>
               <a
                 href="https://github.com/CivicTechTO/women-and-color-frontend"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faGithub} size="lg" />
               </a>
-              <a href="https://twitter.com/womenandcolor" target="_blank">
+              <a href="https://twitter.com/womenandcolor" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faTwitter} size="lg" />
               </a>
               <a
                 href="https://www.instagram.com/womenandcolor/"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faInstagram} size="lg" />
               </a>

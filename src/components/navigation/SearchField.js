@@ -1,12 +1,12 @@
 // NPM
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import { navigate } from 'gatsby'
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux'
 
 // APP
-import StyledButton from 'appCommon/StyledButton';
 import { updateSearchParams } from 'appRedux/modules/speaker';
 import css from 'appAssets/css/navigation.module.css';
 import { searchForm, hideOnMobile } from 'appAssets/css/styles.module.css';
@@ -22,8 +22,8 @@ class SearchField extends Component {
     event.preventDefault();
     const query = this.state.query;
     const home = '/'
-    if (this.props.history.location.pathname !== home) {
-      this.props.history.push(home)
+    if (this.props.location.pathname !== home) {
+      navigate(home)
     }
     this.props.updateSearchParams({
       q: query,
@@ -38,8 +38,8 @@ class SearchField extends Component {
     this.setState({ query });
     if (!query) {
       const home = '/'
-      if (this.props.history.location.pathname !== home) {
-        this.props.history.push(home)
+      if (this.props.location.pathname !== home) {
+        navigate(home)
       }
       this.props.updateSearchParams({
         q: null,

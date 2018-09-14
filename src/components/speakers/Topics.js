@@ -1,16 +1,15 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-// import { withRouter } from 'react-router-dom';
 import { updateSearchParams } from 'appRedux/modules/speaker';
+import { topicLinks } from 'appAssets/css/speakers.module.css';
+import { navigate } from 'gatsby';
 
-// import { topicLinks } from '../styles.css';
-
-const Topics = ({ history, topics, updateSearchParams, limit }) => {
+const Topics = ({ location, topics, updateSearchParams, limit }) => {
   const onTopicClick = topic => event => {
     event.preventDefault();
     const home = '/';
-    if (history.location.pathname !== home) {
-      history.push(home)
+    if (location.pathname !== home) {
+      navigate(home)
     }
 
     updateSearchParams({
@@ -24,11 +23,11 @@ const Topics = ({ history, topics, updateSearchParams, limit }) => {
   const topicsList = limit ? topics.slice(0, limit - 1) : topics;
 
   return (
-    <div className={'topicLinks'}>
+    <div className={topicLinks}>
       {
         topicsList.map(topic => (
           <a
-            href={'#'}
+            href={'/'}
             key={topic.topic}
             onClick={onTopicClick(topic.topic)}
             title={topic.topic}

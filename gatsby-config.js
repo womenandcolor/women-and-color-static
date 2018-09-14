@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Women and Color',
+    description: 'Find talented women and people of color available for speaking opportunities at tech-related events.'
   },
   plugins: [
     'gatsby-plugin-react-helmet',

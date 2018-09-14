@@ -1,17 +1,15 @@
 // NPM
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import { find } from 'lodash';
-import { Helmet } from "react-helmet";
 
 // APP
 import SpeakerList from '../components/speakers/SpeakerList';
 import Filters from '../components/speakers/Filters';
 import MobileFilters from '../components/speakers/MobileFilters';
 import MobileSearch from '../components/speakers/MobileSearch';
-import StyledButton from 'appCommon/StyledButton';
 import Header from '../components/header/Header';
 import { fetchSpeakers, updateSearchParams } from 'appRedux/modules/speaker';
 import { get as getLocations } from 'appRedux/modules/location';
@@ -50,7 +48,7 @@ const Home = ({
     <DefaultLayout {...rest} >
       <Grid container justify="center" spacing={0}>
         <Grid item xs={12}>
-          <Header />
+          <Header location={rest.location} />
         </Grid>
         <Grid item xs={12} md={9}>
           <Grid container spacing={0}>
@@ -62,7 +60,7 @@ const Home = ({
 
             <Hidden mdUp>
               <Grid item xs={12}>
-                <MobileSearch />
+                <MobileSearch location={rest.location} />
                 <MobileFilters locations={locations} />
               </Grid>
             </Hidden>
@@ -79,6 +77,7 @@ const Home = ({
                 speakers={speakers}
                 endOfResults={endOfResults}
                 loadMoreSpeakers={loadMoreSpeakers}
+                location={rest.location}
               />
             </Grid>
           </Grid>
@@ -96,9 +95,9 @@ class HomeContainer extends Component {
     this.props.fetchSpeakers(this.props.searchParams);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.searchParams != nextProps.searchParams) {
-      this.props.fetchSpeakers(nextProps.searchParams);
+  componentDidUpdate(prevProps) {
+    if (this.props.searchParams !== prevProps.searchParams) {
+      this.props.fetchSpeakers(this.props.searchParams);
     }
   }
 
@@ -112,13 +111,7 @@ class HomeContainer extends Component {
 
   render() {
     return(
-      <div>
-        <Helmet>
-          <title>Women and Color</title>
-          <meta name="description" content="Find talented women and people of color available for speaking opportunities at tech-related events." />
-        </Helmet>
-        <Home loadMoreSpeakers={this.loadMoreSpeakers} {...this.props} />
-      </div>
+      <Home loadMoreSpeakers={this.loadMoreSpeakers} {...this.props} />
     )
   }
 }

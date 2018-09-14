@@ -1,6 +1,5 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { Link } from 'gatsby';
 
 import { header } from 'appAssets/css/styles.module.css';
 import DefaultLayout from '../components/layouts/Default';

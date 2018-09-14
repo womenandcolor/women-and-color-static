@@ -34,7 +34,7 @@ class MenuDropdown extends React.Component {
         <Menu
           id="main-menu"
           anchorEl={this.state.anchorEl}
-          open={Boolean(this.state.anchorEl)}
+          open={open}
           onClose={this.handleClose}
         >
           {this.props.menuItems.map(item => {

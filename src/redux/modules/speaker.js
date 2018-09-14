@@ -1,5 +1,5 @@
 // NPM
-import { map, compact, uniqBy } from 'lodash';
+import { uniqBy } from 'lodash';
 import { equals } from 'ramda';
 import { navigate } from 'gatsby';
 import axios from 'axios';
@@ -13,15 +13,12 @@ import {
 import { generateQueryString } from 'appHelpers/queryParams';
 import { speakerToNamePath, speakerToProfilePath } from 'appHelpers/url';
 import { showNotification } from './notification';
-import { getApiToken } from './user'
 
 const MODULE_NAME = 'SPEAKER';
 
-const GET_SPEAKER = `${MODULE_NAME}/GET_SPEAKER`;
 const UPDATE_SPEAKER = `${MODULE_NAME}/UPDATE_SPEAKER`;
 const UPDATE_SPEAKERS = `${MODULE_NAME}/UPDATE_SPEAKERS`;
 const UPDATE_SEARCH_PARAMS = `${MODULE_NAME}/UPDATE_SEARCH_PARAMS`;
-const UPDATE_SELECTION = `${MODULE_NAME}/UPDATE_SELECTION`;
 
 // Sync Action
 export function updateSpeakers(results, append) {

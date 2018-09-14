@@ -1,17 +1,15 @@
 // NPM
-import React, { PropTypes } from 'react';
+import React from 'react';
 import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
-import Chip from '@material-ui/core/Chip';
 import { Link } from 'gatsby';
 
 // App
 import { speakerToProfilePath } from 'appHelpers/url';
 import StyledButton from 'appCommon/StyledButton';
 import Topics from './Topics';
-import { updateSearchParams } from 'appRedux/modules/speaker';
 
-import css from '../../pages/styles.module.css';
+import css from 'appAssets/css/index.module.css';
 import { profilePhoto } from 'appAssets/css/styles.module.css'
 
 function buildTitle(position, organization) {
@@ -33,7 +31,7 @@ function buildTitle(position, organization) {
   );
 }
 
-const SpeakerCard = ({ speaker, classes }) => {
+const SpeakerCard = ({ speaker, classes, location }) => {
   const name = !!speaker.display_name ? speaker.display_name : speaker.email;
   const title = buildTitle(speaker.position, speaker.organization);
   const speakerProfilePath = speakerToProfilePath({
@@ -56,7 +54,7 @@ const SpeakerCard = ({ speaker, classes }) => {
           {title}
           { (speaker.topics.length > 0) &&
             <Hidden smDown>
-              <Topics topics={speaker.topics} limit={6} />
+              <Topics topics={speaker.topics} limit={6} location={location} />
             </Hidden>
           }
         </Grid>

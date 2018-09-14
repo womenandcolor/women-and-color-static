@@ -1,15 +1,9 @@
 // Project
-import React, { Component }  from 'react'
+import React  from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'gatsby'
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Card from '@material-ui/core/Card';
 
 // App
 import {
@@ -63,25 +57,19 @@ const Login = ({ handleUserInputChange, handleSubmit, ...rest}) => {
 }
 
 
-class LoginContainer extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return(
-      <Login
-        handleSubmit={event => {
-          event.preventDefault();
-          this.props.submitForm(this.props.user);
-        }}
-        handleUserInputChange={(field, value) => {
-          this.props.onChangeUser({ [field]: value })
-        }}
-        {...this.props}
-      />
-    )
-  }
+const LoginContainer = props => {
+  return(
+    <Login
+      handleSubmit={event => {
+        event.preventDefault();
+        props.submitForm(props.user);
+      }}
+      handleUserInputChange={(field, value) => {
+        props.onChangeUser({ [field]: value })
+      }}
+      {...props}
+    />
+  )
 }
 
 function mapStateToProps(state) {

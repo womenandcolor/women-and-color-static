@@ -1,5 +1,5 @@
 // NPM
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -8,10 +8,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import { map, find } from 'lodash';
+import { map } from 'lodash';
 
 // APP
-import css from '../../pages/styles.module.css';
+import css from 'appAssets/css/index.module.css';
 import { updateSearchParams, fetchSpeakers } from 'appRedux/modules/speaker';
 import { IDENTITIES, DEFAULT_SPEAKER_LIMIT } from 'appHelpers/constants';
 
@@ -31,9 +31,9 @@ class Filters extends Component {
     this.state = { expand: {}, showFilters: false };
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.selectedLocation && this.props.selectedLocation !== newProps.selectedLocation) {
-      const country  = newProps.selectedLocation.country.toLowerCase();
+  componentDidUpdate(prevProps) {
+    if (this.props.selectedLocation && this.props.selectedLocation !== prevProps.selectedLocation) {
+      const country  = this.props.selectedLocation.country.toLowerCase();
       this.setState({
         expand: {
           [country]: true
@@ -48,7 +48,7 @@ class Filters extends Component {
       if (!dict[country]) {
         dict[country] = [];
       }
-      dict[country].push(location);
+      return dict[country].push(location);
     });
 
     return dict;
