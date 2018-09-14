@@ -17,11 +17,11 @@ const MODULE_NAME = 'profiles';
 const ENDPOINT_URL = `${BASE_URL_PATH}/api/v1/${MODULE_NAME}/`;
 
 // Actions
-// function getRequest() {
-//   return {
-//     type: GetRequest(MODULE_NAME)
-//   }
-// }
+export function getRequest() {
+  return {
+    type: GetRequest(MODULE_NAME)
+  }
+}
 
 export function getSuccess(data) {
   return {
@@ -30,12 +30,12 @@ export function getSuccess(data) {
   }
 }
 
-// function getError(error) {
-//   return {
-//     type: GetError(MODULE_NAME),
-//     error
-//   }
-// }
+export function getError(error) {
+  return {
+    type: GetError(MODULE_NAME),
+    error
+  }
+}
 
 function putRequest() {
   return {

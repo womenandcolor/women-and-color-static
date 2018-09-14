@@ -32,7 +32,7 @@ const loggedOutMenuItems = {
 const loggedInMenuItems = profileId => {
   return {
     default: [
-      { title: 'Edit profile', slug: '/profile', color: 'primary' },
+      { title: 'Edit profile', slug: '/profile/about', color: 'primary' },
     ],
     '/profile/about': [
       {

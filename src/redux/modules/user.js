@@ -19,6 +19,7 @@ import {
   OnChange,
 } from './action_template';
 import {
+  getRequest as getProfileRequest,
   getSuccess as getProfileSuccess,
   logoutSuccess as logoutProfile,
 } from 'appRedux/modules/profile';
@@ -79,6 +80,7 @@ function putRequest() {
   };
 }
 
+// eslint-disable-next-line
 function putSuccess(data) {
   return {
     type: PutSuccess(MODULE_NAME),
@@ -149,6 +151,7 @@ export function validateToken() {
 export function get() {
   return (dispatch, getState) => {
     dispatch(getRequest());
+    dispatch(getProfileRequest());
     const token = getApiToken();
     const authHeader = token ? { Authorization: `JWT ${token}` } : {};
 

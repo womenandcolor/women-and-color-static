@@ -12,6 +12,7 @@ const ACCOUNT_PAGES = [
   '/get-started/profile',
   '/get-started/work',
   '/get-started/social',
+  '/get-started/communication',
 ]
 
 const Footer = props => {

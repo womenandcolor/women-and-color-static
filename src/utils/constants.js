@@ -12,7 +12,7 @@ export const registrationFlow = {
   },
 
   social: {
-    next: '/get-started/email-settings',
+    next: '/get-started/communication',
   },
 
   email_settings: {
