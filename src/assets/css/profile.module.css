@@ -1,3 +1,5 @@
+/*@import './variables.css';*/
+
 /* side bar */
 
 .sidebarTitle {
@@ -10,7 +12,7 @@
 
 .sidebarObjectSelected {
   color: #283ca7 !important;
-  background-color: #e5e8f4 !important; /* oh I need to find a better way than this */
+  background-color: #e5e8f4 !important;
 }
 
 /* main content */
