@@ -37,45 +37,43 @@ const Work = props => {
   };
 
   return (
-    <DefaultLayout {...props}>
-      <div className={css.registrationForm}>
-        <form onSubmit={props.handleSubmit}>
-          <h1 className={css.registrationFormHeader}>Let's talk about work</h1>
+    <div className={css.registrationForm}>
+      <form onSubmit={props.handleSubmit}>
+        <h1 className={css.registrationFormHeader}>Let's talk about work</h1>
 
-          <FormField fullWidth className={css.formControl}>
-            <TextField label="Position" onChange={generateHandler('position')} />
+        <FormField fullWidth className={css.formControl}>
+          <TextField label="Position" onChange={generateHandler('position')} />
+        </FormField>
+
+        <FormField fullWidth className={css.formControl}>
+          <TextField
+            label="Organization"
+            onChange={generateHandler('organization')}
+          />
+        </FormField>
+
+        <FormField fullWidth className={css.formControl}>
+          <FormLabel component="legend">Speaking Topics</FormLabel>
+          <TopicSelector
+            topics={props.topics}
+            selectedTopics={props.profile.topics}
+            handleChange={handleTopicsChange}
+            createTopic={props.createTopic}
+          />
+          <FormHelperText>
+            {`Topics: ${props.profile.topics.length || '0'} of 10`}
+          </FormHelperText>
+        </FormField>
+
+        <div>
+          <FormField className={css.formControl}>
+            <StyledButton label="Submit" type="submit" color="primary">
+              Save and continue
+            </StyledButton>
           </FormField>
-
-          <FormField fullWidth className={css.formControl}>
-            <TextField
-              label="Organization"
-              onChange={generateHandler('organization')}
-            />
-          </FormField>
-
-          <FormField fullWidth className={css.formControl}>
-            <FormLabel component="legend">Speaking Topics</FormLabel>
-            <TopicSelector
-              topics={props.topics}
-              selectedTopics={props.profile.topics}
-              handleChange={handleTopicsChange}
-              createTopic={props.createTopic}
-            />
-            <FormHelperText>
-              {`Topics: ${props.profile.topics.length || '0'} of 10`}
-            </FormHelperText>
-          </FormField>
-
-          <div>
-            <FormField className={css.formControl}>
-              <StyledButton label="Submit" type="submit" color="primary">
-                Save and continue
-              </StyledButton>
-            </FormField>
-          </div>
-        </form>
-      </div>
-    </DefaultLayout>
+        </div>
+      </form>
+    </div>
   );
 };
 
@@ -89,7 +87,7 @@ class WorkContainer extends Component {
 
   render() {
     return (
-      <div>
+      <DefaultLayout {...this.props}>
         <Helmet>
           <title>Get started - Work</title>
           <meta
@@ -112,7 +110,7 @@ class WorkContainer extends Component {
           }}
           {...this.props}
         />
-      </div>
+      </DefaultLayout>
     );
   }
 }

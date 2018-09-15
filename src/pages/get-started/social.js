@@ -25,44 +25,41 @@ const Social = (props) => {
   }
 
   return(
-    <DefaultLayout {...props}>
-      <div className={ css.registrationForm }>
-        <form onSubmit={ props.handleSubmit }>
-          <h1 className={css.registrationFormHeader}>Be a little social</h1>
+    <div className={ css.registrationForm }>
+      <form onSubmit={ props.handleSubmit }>
+        <h1 className={css.registrationFormHeader}>Be a little social</h1>
 
-          <FormField fullWidth className={ css.formControl }>
-            <TextField
-              label="Twitter handle (optional)"
-              onChange={ generateHandler('twitter') }
-              placeholder="Ex. @womenandcolor"
-            />
+        <FormField fullWidth className={ css.formControl }>
+          <TextField
+            label="Twitter handle (optional)"
+            onChange={ generateHandler('twitter') }
+            placeholder="Ex. @womenandcolor"
+          />
+        </FormField>
+
+        <FormField fullWidth className={ css.formControl }>
+          <TextField
+            label="LinkedIn page (optional)"
+            onChange={ generateHandler('linkedin') }
+            placeholder="Ex. https://www.linkedin.com/in/yournamehere/"
+          />
+        </FormField>
+
+        <FormField fullWidth className={ css.formControl }>
+          <TextField
+            label="Website (optional)"
+            onChange={ generateHandler('website') }
+            placeholder="Ex. http://womenandcolor.com/"
+          />
+        </FormField>
+
+        <div>
+          <FormField className={ css.formControl }>
+            <StyledButton label="Submit" type="submit" color="primary">Save and continue</StyledButton>
           </FormField>
-
-          <FormField fullWidth className={ css.formControl }>
-            <TextField
-              label="LinkedIn page (optional)"
-              onChange={ generateHandler('linkedin') }
-              placeholder="Ex. https://www.linkedin.com/in/yournamehere/"
-            />
-          </FormField>
-
-          <FormField fullWidth className={ css.formControl }>
-            <TextField
-              label="Website (optional)"
-              onChange={ generateHandler('website') }
-              placeholder="Ex. http://womenandcolor.com/"
-            />
-          </FormField>
-
-          <div>
-            <FormField className={ css.formControl }>
-              <StyledButton label="Submit" type="submit" color="primary">Save and continue</StyledButton>
-            </FormField>
-          </div>
-        </form>
-
-      </div>
-    </DefaultLayout>
+        </div>
+      </form>
+    </div>
   )
 }
 
@@ -77,7 +74,7 @@ class SocialContainer extends Component {
     const props = this.props;
 
     return(
-      <div>
+      <DefaultLayout {...props}>
         <Helmet>
           <title>Get started - Social</title>
           <meta name="description" content="Create your profile on Women and Color" />
@@ -92,7 +89,7 @@ class SocialContainer extends Component {
           }}
           {...this.props}
         />
-      </div>
+      </DefaultLayout>
     )
   }
 }

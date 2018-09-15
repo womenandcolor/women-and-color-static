@@ -36,6 +36,10 @@ const Profile = props => {
     };
   };
 
+  if (!props.profile.isInitialized || props.profile.isLoading) {
+    return <ReactLoading type="spinningBubbles" color="#E5E8F4" />;
+  }
+
   if (!props.profile.id) {
     return (
       <div>
@@ -46,136 +50,134 @@ const Profile = props => {
   }
 
   return (
-    <DefaultLayout {...props}>
-      <div className={css.registrationForm}>
-        <form onSubmit={props.handleSubmit}>
-          <h1 className={css.registrationFormHeader}>Tell us about you</h1>
+    <div className={css.registrationForm}>
+      <form onSubmit={props.handleSubmit}>
+        <h1 className={css.registrationFormHeader}>Tell us about you</h1>
 
-          <FormField fullWidth className={css.formControl}>
-            <InputLabel htmlFor="speaker-location">City</InputLabel>
-            <Select
-              value={props.profile.location}
-              onChange={generateHandler('location')}
-              input={<Input name="location" id="location" />}
-            >
-              {props.locations &&
-                props.locations.map((location, index) => (
-                  <MenuItem key={index} value={location.id}>
-                    {location.city}
-                  </MenuItem>
-                ))}
-            </Select>
-          </FormField>
+        <FormField fullWidth className={css.formControl}>
+          <InputLabel htmlFor="speaker-location">City</InputLabel>
+          <Select
+            value={props.profile.location}
+            onChange={generateHandler('location')}
+            input={<Input name="location" id="location" />}
+          >
+            {props.locations &&
+              props.locations.map((location, index) => (
+                <MenuItem key={index} value={location.id}>
+                  {location.city}
+                </MenuItem>
+              ))}
+          </Select>
+        </FormField>
 
-          <FormField fullWidth className={css.formControl}>
-            <TextField
-              required
-              label="First Name"
-              onChange={generateHandler('first_name')}
-              InputLabelProps={{ required: false }}
+        <FormField fullWidth className={css.formControl}>
+          <TextField
+            required
+            label="First Name"
+            onChange={generateHandler('first_name')}
+            InputLabelProps={{ required: false }}
+          />
+        </FormField>
+
+        <FormField fullWidth className={css.formControl}>
+          <TextField
+            required
+            label="Last Name"
+            onChange={generateHandler('last_name')}
+            InputLabelProps={{ required: false }}
+          />
+        </FormField>
+
+        <FormField fullWidth className={css.formControl}>
+          <FormLabel component="legend">Do you identify as a woman?</FormLabel>
+          <RadioGroup
+            aria-label="woman"
+            name="woman"
+            value={
+              props.profile.woman === null
+                ? 'true'
+                : props.profile.woman.toString()
+            }
+            onChange={generateHandler('woman')}
+          >
+            <FormControlLabel
+              value="true"
+              control={<Radio color="primary" />}
+              label="Yes"
             />
-          </FormField>
-
-          <FormField fullWidth className={css.formControl}>
-            <TextField
-              required
-              label="Last Name"
-              onChange={generateHandler('last_name')}
-              InputLabelProps={{ required: false }}
+            <FormControlLabel
+              value="false"
+              control={<Radio color="primary" />}
+              label="No"
             />
-          </FormField>
+          </RadioGroup>
+        </FormField>
 
-          <FormField fullWidth className={css.formControl}>
-            <FormLabel component="legend">Do you identify as a woman?</FormLabel>
-            <RadioGroup
-              aria-label="woman"
-              name="woman"
-              value={
-                props.profile.woman === null
-                  ? 'true'
-                  : props.profile.woman.toString()
-              }
-              onChange={generateHandler('woman')}
-            >
-              <FormControlLabel
-                value="true"
-                control={<Radio color="primary" />}
-                label="Yes"
-              />
-              <FormControlLabel
-                value="false"
-                control={<Radio color="primary" />}
-                label="No"
-              />
-            </RadioGroup>
-          </FormField>
+        <FormField fullWidth className={css.formControl}>
+          <FormLabel component="legend">
+            Do you identify as a person of color?
+          </FormLabel>
+          <RadioGroup
+            aria-label="poc"
+            name="poc"
+            value={
+              props.profile.poc === null ? 'true' : props.profile.poc.toString()
+            }
+            onChange={generateHandler('poc')}
+          >
+            <FormControlLabel
+              value="true"
+              control={<Radio color="primary" />}
+              label="Yes"
+            />
+            <FormControlLabel
+              value="false"
+              control={<Radio color="primary" />}
+              label="No"
+            />
+          </RadioGroup>
+        </FormField>
 
-          <FormField fullWidth className={css.formControl}>
-            <FormLabel component="legend">
-              Do you identify as a person of color?
-            </FormLabel>
-            <RadioGroup
-              aria-label="poc"
-              name="poc"
-              value={
-                props.profile.poc === null ? 'true' : props.profile.poc.toString()
-              }
-              onChange={generateHandler('poc')}
-            >
-              <FormControlLabel
-                value="true"
-                control={<Radio color="primary" />}
-                label="Yes"
-              />
-              <FormControlLabel
-                value="false"
-                control={<Radio color="primary" />}
-                label="No"
-              />
-            </RadioGroup>
-          </FormField>
+        <FormField fullWidth className={css.formControl}>
+          <FormLabel component="legend">What pronouns do you use?</FormLabel>
+          <RadioGroup
+            aria-label="pronouns"
+            name="pronouns"
+            value={props.profile.pronouns || 'they'}
+            onChange={generateHandler('pronouns')}
+          >
+            <FormControlLabel
+              value="they"
+              control={<Radio color="primary" />}
+              label="They, them, their"
+            />
+            <FormControlLabel
+              value="she"
+              control={<Radio color="primary" />}
+              label="She, her, her"
+            />
+            <FormControlLabel
+              value="he"
+              control={<Radio color="primary" />}
+              label="He, him, his"
+            />
+          </RadioGroup>
+        </FormField>
 
-          <FormField fullWidth className={css.formControl}>
-            <FormLabel component="legend">What pronouns do you use?</FormLabel>
-            <RadioGroup
-              aria-label="pronouns"
-              name="pronouns"
-              value={props.profile.pronouns || 'they'}
-              onChange={generateHandler('pronouns')}
-            >
-              <FormControlLabel
-                value="they"
-                control={<Radio color="primary" />}
-                label="They, them, their"
-              />
-              <FormControlLabel
-                value="she"
-                control={<Radio color="primary" />}
-                label="She, her, her"
-              />
-              <FormControlLabel
-                value="he"
-                control={<Radio color="primary" />}
-                label="He, him, his"
-              />
-            </RadioGroup>
-          </FormField>
+        <FormField className={css.formControl}>
+          <FormLabel component="legend">Upload your photo</FormLabel>
+          <ImageUpload />
+        </FormField>
 
+        <div>
           <FormField className={css.formControl}>
-            <FormLabel component="legend">Upload your photo</FormLabel>
-            <ImageUpload />
+            <StyledButton label="Submit" type="submit" color="primary">
+              Save and continue
+            </StyledButton>
           </FormField>
-
-          <div>
-            <FormField className={css.formControl}>
-              <StyledButton label="Submit" type="submit" color="primary">
-                Save and continue
-              </StyledButton>
-            </FormField>
-          </div>
-        </form>
-      </div>
-    </DefaultLayout>
+        </div>
+      </form>
+    </div>
   );
 };
 
@@ -190,11 +192,8 @@ class ProfileContainer extends Component {
   render() {
     const props = this.props;
 
-    if (!props.profile.isInitialized || props.profile.isLoading) {
-      return <ReactLoading type="spinningBubbles" color="#E5E8F4" />;
-    }
     return (
-      <div>
+      <DefaultLayout {...this.props}>
         <Helmet>
           <title>Get started - Profile</title>
           <meta
@@ -216,7 +215,7 @@ class ProfileContainer extends Component {
           }}
           {...props}
         />
-      </div>
+      </DefaultLayout>
     );
   }
 }

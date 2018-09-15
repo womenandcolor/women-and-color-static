@@ -1,6 +1,5 @@
 // NPM
 import { uniqBy } from 'lodash';
-import { equals } from 'ramda';
 import { navigate } from 'gatsby';
 import axios from 'axios';
 
@@ -11,7 +10,6 @@ import {
   DEFAULT_SPEAKER_LIMIT,
 } from 'appHelpers/constants';
 import { generateQueryString } from 'appHelpers/queryParams';
-import { speakerToNamePath, speakerToProfilePath } from 'appHelpers/url';
 import { showNotification } from './notification';
 
 const MODULE_NAME = 'SPEAKER';
@@ -54,12 +52,7 @@ export function getSpeaker(id, fullName = '') {
     axios
       .get(`${BASE_URL_PATH}/api/v1/profiles/${id}`)
       .then(res => {
-        console.log('res', res)
         dispatch(updateSpeaker(res.data));
-        if (!equals(fullName, speakerToNamePath(res.data))) {
-          const speakerProfilePath = speakerToProfilePath(res.data);
-          navigate(speakerProfilePath);
-        }
       })
       .catch(err => {
         console.log('err', err)

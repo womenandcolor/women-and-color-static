@@ -37,42 +37,40 @@ const Communication = props => {
   }
 
   return (
-    <DefaultLayout {...props}>
-      <div className={css.registrationForm}>
-        <form onSubmit={props.handleSubmit}>
-          <h1 className={css.registrationFormHeader}>Stay in touch</h1>
-          <FormField fullWidth className={css.formControl}>
-            <label>What can we contact you about?</label>
+    <div className={css.registrationForm}>
+      <form onSubmit={props.handleSubmit}>
+        <h1 className={css.registrationFormHeader}>Stay in touch</h1>
+        <FormField fullWidth className={css.formControl}>
+          <label>What can we contact you about?</label>
 
-            {
-              group_options.map(group => {
-                const checked = find(props.profile.subscription_groups, g => g.group_id === group.group_id)
-                return (
-                  <FormControlLabel
-                    key={group.group_id}
-                    control={
-                      <Checkbox
-                        checked={Boolean(checked)}
-                        onChange={handleSubscriptionGroups}
-                        value={group.group_id}
-                        color="primary"
-                      />
-                    }
-                    label={group.label}
-                  />
-                )
-              })
-            }
-          </FormField>
+          {
+            group_options.map(group => {
+              const checked = find(props.profile.subscription_groups, g => g.group_id === group.group_id)
+              return (
+                <FormControlLabel
+                  key={group.group_id}
+                  control={
+                    <Checkbox
+                      checked={Boolean(checked)}
+                      onChange={handleSubscriptionGroups}
+                      value={group.group_id}
+                      color="primary"
+                    />
+                  }
+                  label={group.label}
+                />
+              )
+            })
+          }
+        </FormField>
 
-          <FormField className={css.formControl}>
-            <StyledButton label="Save communication settings" type="submit" color="primary">
-              Save
-            </StyledButton>
-          </FormField>
-        </form>
-      </div>
-    </DefaultLayout>
+        <FormField className={css.formControl}>
+          <StyledButton label="Save communication settings" type="submit" color="primary">
+            Save
+          </StyledButton>
+        </FormField>
+      </form>
+    </div>
   );
 };
 
@@ -89,7 +87,7 @@ class CommunicationContainer extends Component {
 
   render() {
     return (
-      <div>
+      <DefaultLayout {...this.props}>
         <Helmet>
           <title>Get started - Communication</title>
           <meta
@@ -107,7 +105,7 @@ class CommunicationContainer extends Component {
           }}
           {...this.props}
         />
-      </div>
+      </DefaultLayout>
     );
   }
 }

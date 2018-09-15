@@ -1,6 +1,6 @@
 // NPM
 import axios from 'axios';
-import { push } from 'gatsby';
+import { navigate } from 'gatsby';
 import { map } from 'lodash';
 
 // App
@@ -140,7 +140,7 @@ export function validateToken() {
         .catch(err => {
           dispatch(removeApiToken());
           dispatch(logoutSuccess());
-          dispatch(push('/login'))
+          navigate('/login')
         });
     } else {
       dispatch(logoutSuccess());
@@ -163,7 +163,7 @@ export function get() {
           dispatch(getSuccess({...data, isAuthenticated: true }));
           dispatch(getProfileSuccess(data.profile));
           if (data.profile.page)
-            dispatch(push(registrationFlow[data.profile.page].next));
+            navigate(registrationFlow[data.profile.page].next);
         }
       })
       .catch(err => {
@@ -195,7 +195,7 @@ export function create() {
         );
         dispatch(get())
         dispatch(showNotification('Your account has been created.'));
-        dispatch(push(registrationFlow[page].next));
+        navigate(registrationFlow[page].next);
       })
       .catch(err => {
         console.log(err);
@@ -283,7 +283,7 @@ export function destroy() {
         removeApiToken();
         dispatch(logoutSuccess());
         dispatch(logoutProfile());
-        dispatch(push('/'));
+        navigate('/');
         dispatch(showNotification('Your account has been deleted.'));
       })
       .catch(err => {
@@ -326,7 +326,7 @@ export function login() {
         );
         dispatch(get());
         dispatch(showNotification('Welcome back!'));
-        dispatch(push('/profile'));
+        navigate('/profile');
       })
       .catch(err => {
         console.log(err);
@@ -357,7 +357,7 @@ export function logout() {
         removeApiToken();
         dispatch(logoutSuccess());
         dispatch(logoutProfile());
-        dispatch(push('/'));
+        navigate('/');
         dispatch(showNotification('You have been logged out of your account.'));
       })
       .catch(err => {
@@ -390,7 +390,7 @@ export function resetPassword() {
     })
       .then(res => {
         dispatch(showNotification(res.data.detail));
-        dispatch(push('/'));
+        navigate('/');
       })
       .catch(err => {
         if (err.response && err.response.data) {
@@ -421,7 +421,7 @@ export function confirmResetPassword(uid, token) {
     })
       .then(res => {
         dispatch(showNotification(res.data.detail));
-        dispatch(push('/'));
+        navigate('/');
       })
       .catch(err => {
         if (err.response && err.response.data) {

@@ -1,79 +1,132 @@
-// NPM
-import React from 'react';
-import Hidden from '@material-ui/core/Hidden';
-import Grid from '@material-ui/core/Grid';
-import { Link } from 'gatsby';
+import React from 'react'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import Grid from '@material-ui/core/Grid'
+
+import { withStyles } from '@material-ui/core/styles'
 
 // App
-import { speakerToProfilePath } from 'appHelpers/url';
-import StyledButton from 'appCommon/StyledButton';
-import Topics from './Topics';
-
-import css from 'appAssets/css/index.module.css';
+import css from 'appAssets/css/speakers.module.css'
 import { profilePhoto } from 'appAssets/css/styles.module.css'
+import { pronounDict } from 'appHelpers/constants'
+import { ensureAbsoluteUrl } from 'appHelpers/url'
+import Topics from './Topics'
 
-function buildTitle(position, organization) {
-  let separator;
-  if (position && organization) {
-    separator = ` at `;
-  } else {
-    separator = ', ';
-  }
+const styles = theme => ({
+  city: {
+    backgroundColor: theme.palette.secondary.light,
+    textAlign: 'center',
+    borderTop: `1px solid ${theme.palette.secondary.main}`,
+  },
+  pronouns: {
+    backgroundColor: theme.palette.primary.light,
+    textAlign: 'center',
+    borderTop: `1px solid ${theme.palette.secondary.main}`,
+  },
+  socials: {
+    backgroundColor: theme.palette.primary.contrastText,
+    textAlign: 'center',
+    justifyContent: 'space-around',
+    borderTop: `1px solid ${theme.palette.secondary.main}`,
+  },
+  card: {
+    borderRadius: '8px',
+    border: `1px solid ${theme.palette.secondary.main}`,
+  },
+  photo: {
+    maxWidth: '128px',
+    marginBottom: '1rem',
+    marginTop: '1rem',
+  },
+  listItemText: {
+    padding: '0',
+  },
+})
+
+const SpeakerCard = ({ speaker, classes }) => {
+  const hasSocial = speaker.linkedin || speaker.twitter || speaker.website
 
   return (
-    <p className={css.speakerTitle}>
-      <span className={css.position}>{position || 'Independent'}</span>
-      <span className={css.separator}>{separator}</span>
-      <span className={css.organization}>
-        {organization || 'No affiliation'}
-      </span>
-    </p>
-  );
+    <Card elevation={0} square={false} className={classes.card}>
+      <Grid container>
+        <Grid item xs={12}>
+          <CardContent className={css.speakerCard}>
+            <Grid container justify="center" spacing={0}>
+              <Grid item xs={8} className={classes.photo}>
+                <div className={`${profilePhoto}`}>
+                  <img src={speaker.image} alt={speaker.display_name} />
+                </div>
+              </Grid>
+            </Grid>
+            <div className={css.speakerCardInfo}>
+              <h5 className={css.speakerCardName}>{speaker.display_name}</h5>
+              <p className={css.speakerCardTitle}>{speaker.position}</p>
+              <p className={css.speakerCardOrganization}>
+                {speaker.organization}
+              </p>
+              {speaker.topics.length > 0 && <Topics topics={speaker.topics} />}
+            </div>
+          </CardContent>
+          <List>
+            {speaker.pronouns && (
+              <ListItem className={classes.pronouns}>
+                <ListItemText
+                  className={classes.listItemText}
+                  primary={pronounDict[speaker.pronouns]}
+                />
+              </ListItem>
+            )}
+
+            {speaker.city && (
+              <ListItem className={classes.city}>
+                <ListItemText
+                  className={classes.listItemText}
+                  primary={`${speaker.city}`}
+                />
+              </ListItem>
+            )}
+            {hasSocial && (
+              <ListItem className={`${classes.socials} ${css.socialLinks}`}>
+                {speaker.twitter && (
+                  <a
+                    href={`https://twitter.com/${speaker.twitter.replace(
+                      /@/,
+                      ''
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Twitter
+                  </a>
+                )}
+                {speaker.linkedin && (
+                  <a
+                    href={ensureAbsoluteUrl(speaker.linkedin)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    LinkedIn
+                  </a>
+                )}
+                {speaker.website && (
+                  <a
+                    href={ensureAbsoluteUrl(speaker.website)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Website
+                  </a>
+                )}
+              </ListItem>
+            )}
+          </List>
+        </Grid>
+      </Grid>
+    </Card>
+  )
 }
 
-const SpeakerCard = ({ speaker, classes, location }) => {
-  const name = !!speaker.display_name ? speaker.display_name : speaker.email;
-  const title = buildTitle(speaker.position, speaker.organization);
-  const speakerProfilePath = speakerToProfilePath({
-    ...speaker,
-  });
-  return (
-    <Grid item xs={12} className={css.contentCard}>
-      <Grid container spacing={16}>
-        <Grid item xs={3} md={3}>
-          <div className={css.speakerPhoto}>
-          <Link to={speakerProfilePath} className={profilePhoto}>
-            <img src={speaker.image} alt={name} />
-          </Link>
-          </div>
-        </Grid>
-        <Grid item xs={9} md={7} className={css.info}>
-          <Link to={speakerProfilePath}>
-            <h3 className={css.name}>{name}</h3>
-          </Link>
-          {title}
-          { (speaker.topics.length > 0) &&
-            <Hidden smDown>
-              <Topics topics={speaker.topics} limit={6} location={location} />
-            </Hidden>
-          }
-        </Grid>
-        <Hidden smDown>
-          <Grid item md={2} className={`actions`}>
-            <StyledButton
-              color="primary"
-              label="View profile"
-              component={Link}
-              to={speakerProfilePath}
-            >
-              View profile
-            </StyledButton>
-          </Grid>
-        </Hidden>
-      </Grid>
-    </Grid>
-  );
-};
-
-
-export default SpeakerCard;
+export default withStyles(styles)(SpeakerCard)

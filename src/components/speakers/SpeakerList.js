@@ -3,7 +3,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
 // APP
-import SpeakerCard from './SpeakerCard';
+import SpeakerListItem from './SpeakerListItem';
 import StyledButton from 'appCommon/StyledButton';
 import css from 'appAssets/css/index.module.css';
 
@@ -18,7 +18,7 @@ const SpeakerList = ({ speakers, endOfResults, loadMoreSpeakers, location }) => 
     <Grid container spacing={0}>
       <Grid container className={css.speakersList} spacing={0}>
         {speakers.map((speaker, index) => (
-          <SpeakerCard speaker={speaker} key={speaker.id} location={location} />
+          <SpeakerListItem speaker={speaker} key={speaker.id} location={location} />
         ))}
       </Grid>
       {!endOfResults && (
