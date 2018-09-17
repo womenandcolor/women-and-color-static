@@ -36,7 +36,7 @@
     "build:local": "GATSBY_API_URL=http://localhost:8000 gatsby build",
     "build:staging": "GATSBY_API_URL=http://womenandcolor-api-staging.herokuapp.com gatsby build",
     "build:production": "GATSBY_API_URL=https://api.womenandcolor.com gatsby build",
-    "start": "GATSBY_API_URL=http://localhost:8000 gatsby develop --port 8080",
+    "develop": "GATSBY_API_URL=http://localhost:8000 gatsby develop --port 8080",
     "serve": "GATSBY_API_URL=http://localhost:8000 gatsby serve",
     "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
