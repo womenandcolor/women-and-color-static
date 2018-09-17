@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from "react-helmet";
 import Notification from 'appCommon/Notification'
 import Navigation from '../navigation/Navigation'
 import Footer from '../footer/Footer'

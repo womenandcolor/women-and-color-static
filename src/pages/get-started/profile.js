@@ -11,7 +11,6 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import ReactLoading from 'react-loading';
-import { Helmet } from 'react-helmet';
 
 // App
 import {

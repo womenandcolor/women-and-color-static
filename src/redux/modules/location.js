@@ -32,7 +32,7 @@ export function getError() {
 export function get(opts={}) {
   return dispatch => {
     dispatch(getRequest());
-    const active = opts.active ? 'active' : ''
+    const active = opts.active ? 'active/' : ''
     axios.get(`${ENDPOINT_URL}${active}`)
     .then(res => {
       dispatch(getSuccess(res.data));

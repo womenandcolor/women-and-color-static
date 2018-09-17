@@ -37,31 +37,18 @@ class MenuDropdown extends React.Component {
           open={open}
           onClose={this.handleClose}
         >
-          {this.props.menuItems.map(item => {
-            if (item.slug.startsWith('/accounts/')) {
-              return (
-                <MenuItem
-                  button
-                  key={item.title}
-                  onClick={() => (window.location.href = item.slug)}
-                >
-                  {item.title}
-                </MenuItem>
-              );
-            } else {
-              return (
-                <MenuItem
-                  button
-                  key={item.title}
-                  component={Link}
-                  to={item.slug}
-                  onClick={this.handleClose}
-                >
-                  {item.title}
-                </MenuItem>
-              );
-            }
-          })}
+          {this.props.menuItems.map(item => (
+              <MenuItem
+                button
+                key={item.title}
+                component={Link}
+                to={item.slug}
+                onClick={this.handleClose}
+              >
+                {item.title}
+              </MenuItem>
+            )
+          )}
         </Menu>
       </div>
     );

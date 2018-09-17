@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { getSpeaker } from 'appRedux/modules/speaker';
 import Grid from '@material-ui/core/Grid';
 import ReactLoading from 'react-loading';
-import { Helmet } from "react-helmet";
 
 // App
 import SpeakerCard from 'appComponents/speakers/SpeakerCard';

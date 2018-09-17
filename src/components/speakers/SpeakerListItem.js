@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import { Link } from 'gatsby';
 
 // App
-import { speakerToProfilePath } from 'appHelpers/url';
+
 import StyledButton from 'appCommon/StyledButton';
 import Topics from './Topics';
 

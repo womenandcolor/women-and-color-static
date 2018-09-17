@@ -108,7 +108,7 @@ class Navigation extends Component {
                         <ButtonMenu menuItems={menuItems} authed={user.isAuthenticated} logout={logout} />
                       </Hidden>
                       <Hidden mdUp>
-                        <MenuDropdown menuItems={menuItems} authed={user.isAuthenticated} logout={logout} />
+                        <MenuDropdown menuItems={menuItems} authed={user.isAuthenticated} logout={logout} location={location} />
                       </Hidden>
                     </Grid>
                   </Grid>

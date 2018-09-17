@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import TextField from '@material-ui/core/TextField';
-import { Helmet } from "react-helmet";
 
 // App
 import {

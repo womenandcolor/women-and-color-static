@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import { Helmet } from 'react-helmet';
 
 // App
 import {

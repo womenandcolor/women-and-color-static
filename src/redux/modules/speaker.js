@@ -40,7 +40,9 @@ export function fetchSpeakers(params = {}) {
     axios
       .get(`${BASE_URL_PATH}/api/v1/profiles?${queryStringforApi}`)
       .then(res => {
-        navigate(`?${queryStringforDisplay}`)
+        if (!!queryStringforDisplay.length) {
+          navigate(`?${queryStringforDisplay}`)
+        }
         dispatch(updateSpeakers(res.data, params.append));
       })
       .catch(err => console.log(err));

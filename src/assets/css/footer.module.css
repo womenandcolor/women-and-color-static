@@ -1,4 +1,4 @@
-/*@import './variables.css';*/
+@import './variables.css';
 
 .footer {
   border-top: 1px solid var(--color-grey-light);
