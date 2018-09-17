@@ -18,6 +18,7 @@ import DefaultLayout from '../components/layouts/Default'
 import css from 'appAssets/css/accounts.module.css';
 
 const CURRENT_PAGE = 'registration';
+const PAGE_TITLE = 'Sign up'
 
 const Register = ({ handleSubmit, handleUserInputChange, ...rest }) => {
   const generateHandlerUser = (fieldName) => {
@@ -25,10 +26,10 @@ const Register = ({ handleSubmit, handleUserInputChange, ...rest }) => {
   }
 
   return(
-    <DefaultLayout {...rest}>
+    <DefaultLayout title={PAGE_TITLE} {...rest}>
       <AccountFormContainer>
         <form onSubmit={ handleSubmit }>
-          <h1 className={css.title}>Sign up</h1>
+          <h1 className={css.title}>{PAGE_TITLE}</h1>
 
           <FormField fullWidth className={ css.formControl }>
             <TextField label="Email" type="email" onChange={ generateHandlerUser('email') } />

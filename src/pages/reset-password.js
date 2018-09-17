@@ -16,16 +16,18 @@ import DefaultLayout from '../components/layouts/Default';
 
 import css from 'appAssets/css/accounts.module.css';
 
+const PAGE_TITLE = "Reset your password"
+
 const ResetPassword = ({ handleUserInputChange, handleSubmit, ...rest }) => {
   const generateHandlerUser = (fieldName) => {
     return (event) => { handleUserInputChange(fieldName, event.currentTarget.value) }
   }
 
   return(
-    <DefaultLayout {...rest}>
+    <DefaultLayout title={PAGE_TITLE} {...rest}>
       <AccountFormContainer>
         <form onSubmit={ handleSubmit }>
-          <h1 className={css.title}>Reset your password</h1>
+          <h1 className={css.title}>{PAGE_TITLE}</h1>
           <p>Forgot your password? Enter your e-mail address below, and we'll send you an e-mail allowing you to reset it.</p>
 
           <FormField fullWidth>

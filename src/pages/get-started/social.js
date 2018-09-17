@@ -17,6 +17,7 @@ import css from 'appAssets/css/onboarding.module.css';
 
 
 const CURRENT_PAGE = 'social';
+const PAGE_TITLE = "Get started - Social"
 
 const Social = (props) => {
 
@@ -74,11 +75,7 @@ class SocialContainer extends Component {
     const props = this.props;
 
     return(
-      <DefaultLayout {...props}>
-        <Helmet>
-          <title>Get started - Social</title>
-          <meta name="description" content="Create your profile on Women and Color" />
-        </Helmet>
+      <DefaultLayout title={PAGE_TITLE} {...props}>
         <Social
           handleSubmit={event => {
             event.preventDefault();

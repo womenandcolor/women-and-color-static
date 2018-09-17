@@ -17,16 +17,18 @@ import DefaultLayout from '../components/layouts/Default';
 
 import css from 'appAssets/css/accounts.module.css';
 
+const PAGE_TITLE = "Log in"
+
 const Login = ({ handleUserInputChange, handleSubmit, ...rest}) => {
   const generateHandlerUser = (fieldName) => {
     return (event) => { handleUserInputChange(fieldName, event.currentTarget.value) }
   }
 
   return(
-    <DefaultLayout { ...rest }>
+    <DefaultLayout title={PAGE_TITLE} { ...rest }>
       <AccountFormContainer>
         <form onSubmit={ handleSubmit }>
-          <h1 className={css.title}>Log in</h1>
+          <h1 className={css.title}>{PAGE_TITLE}</h1>
 
           <FormField fullWidth>
             <TextField label="Email" type="email" onChange={ generateHandlerUser('email') } />

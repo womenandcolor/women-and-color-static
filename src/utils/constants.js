@@ -27,7 +27,7 @@ export const pronounDict = {
   they: 'They, them, their',
 };
 
-export const BASE_URL_PATH = process.env.REACT_APP_API_URL ? process.env.REACT_APP_API_URL : 'http://localhost:8000'
+export const BASE_URL_PATH = process.env.GATSBY_API_URL
 
 export const IDENTITIES = [
   { label: 'All speakers', value: { woman: null, poc: null } },
@@ -46,3 +46,6 @@ export const VALID_PARAMS = [
   'limit',
   'offset',
 ];
+
+export const DEFAULT_PAGE_TITLE = "Women and Color";
+export const DEFAULT_PAGE_DESCRIPTION = "Find talented women and people of color available for speaking opportunities at tech-related events.";

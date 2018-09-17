@@ -326,7 +326,7 @@ export function login() {
         );
         dispatch(get());
         dispatch(showNotification('Welcome back!'));
-        navigate('/profile');
+        navigate('/profile/about/');
       })
       .catch(err => {
         console.log(err);

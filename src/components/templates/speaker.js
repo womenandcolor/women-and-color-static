@@ -69,13 +69,12 @@ class SpeakerContainer extends Component {
 
   render() {
     const { speaker } = this.props;
+    const title = this.generateTitle(speaker, this.props.data.profile);
+    const description = this.generateDescription(speaker);
+
     return(
       <div>
-        <Helmet>
-          <title>{this.generateTitle(speaker, this.props.data.profile)}</title>
-          <meta name="description" content={this.generateDescription(speaker)} />
-        </Helmet>
-        <DefaultLayout {...this.props}>
+        <DefaultLayout title={title} description={description} {...this.props}>
         {
           this.props.speaker ? (
             <Speaker speaker={this.props.speaker} />

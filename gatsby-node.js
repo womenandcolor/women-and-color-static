@@ -13,7 +13,7 @@ const crypto = require('crypto');
 exports.sourceNodes = async ({ actions, createNodeId }) => {
   const { createNode } = actions;
 
-  const res = await axios.get(`https://api.womenandcolor.com/api/v1/profiles/`)
+  const res = await axios.get(`${process.env.GATSBY_API_URL}/api/v1/profiles/`)
 
   const processProfile = profile => {
     const nodeId = createNodeId(`profile-${profile.id}`)
@@ -38,7 +38,9 @@ exports.sourceNodes = async ({ actions, createNodeId }) => {
     return nodeData
   }
 
-  res.data.forEach(profile => createNode(processProfile(profile)))
+  if (res.data.length > 0) {
+    res.data.forEach(profile => createNode(processProfile(profile)))
+  }
 
   return
 }

@@ -18,6 +18,7 @@ import DefaultLayout from '../components/layouts/Default';
 
 import css from 'appAssets/css/index.module.css';
 
+const PAGE_TITLE = "Women and Color"
 
 const searchParamsToSpeakerIdentity = ({ poc, woman }) => {
   if (!poc && !woman) {
@@ -45,7 +46,7 @@ const Home = ({
   const speakerIdentity = searchParamsToSpeakerIdentity(searchParams);
 
   return (
-    <DefaultLayout {...rest} >
+    <DefaultLayout title={PAGE_TITLE} {...rest} >
       <Grid container justify="center" spacing={0}>
         <Grid item xs={12}>
           <Header location={rest.location} />

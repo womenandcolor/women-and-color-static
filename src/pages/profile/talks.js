@@ -22,6 +22,8 @@ const emptyTalk = {
   image: '',
 }
 
+const PAGE_TITLE = "Edit your featured talks"
+
 const Talks = props => {
   const { talks } = props
 
@@ -93,9 +95,9 @@ class TalksContainer extends React.Component {
     const { props } = this
 
     return (
-      <EditProfileLayout {...props}>
+      <EditProfileLayout title={PAGE_TITLE} {...props}>
         <div className={css.section}>
-          <h1 className={css.header}>Edit your featured talks</h1>
+          <h1 className={css.header}>{PAGE_TITLE}</h1>
         </div>
         <Talks
           talks={this.state.talks}

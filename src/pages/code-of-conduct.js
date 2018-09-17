@@ -4,13 +4,15 @@ import Grid from '@material-ui/core/Grid';
 import { header } from 'appAssets/css/styles.module.css';
 import DefaultLayout from '../components/layouts/Default';
 
+const PAGE_TITLE = "Code of Conduct"
+
 const CodeOfConduct = props => {
   return(
-    <DefaultLayout {...props}>
+    <DefaultLayout title={PAGE_TITLE} {...props}>
       <Grid container justify="center">
         <Grid item xs={11} md={9}>
           <header className={header}>
-            <h1>Code of Conduct</h1>
+            <h1>{PAGE_TITLE}</h1>
           </header>
           <h2>1. Purpose</h2>
           <p>A primary goal of Women and Color is to be an inclusive community with the largest number of contributors, representing many various and diverse backgrounds as possible. As such, we are committed to providing a nonsectarian, friendly, safe and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, or socioeconomic status.</p>

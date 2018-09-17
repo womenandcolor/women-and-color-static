@@ -5,13 +5,15 @@ import { Link } from 'gatsby';
 import { header } from 'appAssets/css/styles.module.css'
 import DefaultLayout from '../components/layouts/Default'
 
+const PAGE_TITLE = 'Terms of Use';
+
 const Terms = props => {
   return(
-    <DefaultLayout {...props}>
+    <DefaultLayout title={PAGE_TITLE}  {...props}>
       <Grid container justify="center">
         <Grid item xs={11} md={9}>
           <header className={header}>
-            <h1>Terms of Use</h1>
+            <h1>{PAGE_TITLE}</h1>
           </header>
           <p>By visiting womenandcolor.com, or by using any Women and Color software application (collectively, the “Website”) on any computer, mobile phone, tablet, console or other device, or using any features offered through the Website or any affiliated applications, tools or features (together, the “Services”) you signify that you have read, understand, and agree to these terms and conditions of use, along with any rules, policies and procedures instituted from time-to-time (collectively, the “Terms of Use”), whether or not you have registered for any of the Services.</p>
           <p>These Terms of Use are between you and Women and Color, the owner of the Services, its affiliates and subsidiaries (collectively, “Women and Color” or the “Company”). When used in these Terms of Use, “we”, “us” and “our” mean Women and Color. Your use of the Services constitutes your acceptance of these Terms of Use.</p>

@@ -4,13 +4,15 @@ import Grid from '@material-ui/core/Grid';
 import { header } from 'appAssets/css/styles.module.css';
 import DefaultLayout from '../components/layouts/Default';
 
+const PAGE_TITLE = 'Privacy Policy'
+
 const Privacy = props => {
   return(
-    <DefaultLayout {...props}>
+    <DefaultLayout title={PAGE_TITLE} {...props}>
       <Grid container justify="center">
         <Grid item xs={11} md={9}>
           <header className={header}>
-            <h1>Privacy Policy</h1>
+            <h1>{PAGE_TITLE}</h1>
           </header>
           <h2>Who We Are</h2>
           <p>Women and Color has created this Privacy Policy to demonstrate our firm commitment to protecting your personal information and to outline our information gathering and sharing practices. We will not share your personal information with anyone except as described in this Privacy Policy.</p>

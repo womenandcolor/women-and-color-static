@@ -125,7 +125,7 @@ function mapDispatchToProps(dispatch, props) {
     },
     updateProfile: () => {
       dispatch(updateProfile()).then(() => {
-       navigate('/profile')
+       navigate('/profile/about/')
       });
     },
     showNotification: message => {

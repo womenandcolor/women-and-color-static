@@ -28,6 +28,7 @@ import DefaultLayout from '../../components/layouts/Default';
 import css from 'appAssets/css/onboarding.module.css';
 
 const CURRENT_PAGE = 'profile';
+const PAGE_TITLE = "Get started - Profile"
 
 const Profile = props => {
   const generateHandler = fieldName => {
@@ -193,14 +194,7 @@ class ProfileContainer extends Component {
     const props = this.props;
 
     return (
-      <DefaultLayout {...this.props}>
-        <Helmet>
-          <title>Get started - Profile</title>
-          <meta
-            name="description"
-            content="Create your profile on Women and Color"
-          />
-        </Helmet>
+      <DefaultLayout title={PAGE_TITLE} {...this.props}>
         <Profile
           handleSubmit={event => {
             event.preventDefault();

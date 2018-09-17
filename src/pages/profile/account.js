@@ -21,6 +21,8 @@ import EditProfileLayout from 'appComponents/layouts/EditProfile';
 
 import css from 'appAssets/css/profile.module.css';
 
+const PAGE_TITLE = "Edit your account"
+
 const Account = props => {
   const generateHandler = fieldName => {
     return event => {
@@ -168,9 +170,9 @@ const Account = props => {
 
 const AccountContainer = props => {
   return (
-    <EditProfileLayout {...props}>
+    <EditProfileLayout title={PAGE_TITLE} {...props}>
       <div className={css.section}>
-        <h1 className={css.header}>Edit your account</h1>
+        <h1 className={css.header}>{PAGE_TITLE}</h1>
       </div>
       <Account
         handleSubmit={event => {

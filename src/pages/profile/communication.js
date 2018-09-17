@@ -16,6 +16,8 @@ import EditProfileLayout from 'appComponents/layouts/EditProfile';
 
 import css from 'appAssets/css/profile.module.css';
 
+const PAGE_TITLE = "Edit your communication settings"
+
 const Communication = props => {
   if (!props.profile.isInitialized || props.profile.isLoading) {
     return <ReactLoading type="spinningBubbles" color="#E5E8F4" />
@@ -91,9 +93,9 @@ class CommunicationsContainer extends React.Component {
     const { props } = this;
 
     return (
-      <EditProfileLayout {...props}>
+      <EditProfileLayout title={PAGE_TITLE} {...props}>
         <div className={css.section}>
-          <h1 className={css.header}>Edit your communication settings</h1>
+          <h1 className={css.header}>{PAGE_TITLE}</h1>
         </div>
         <Communication
           handleSubmit={event => {

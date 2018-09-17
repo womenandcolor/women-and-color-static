@@ -34,6 +34,8 @@ import EditProfileLayout from 'appComponents/layouts/EditProfile';
 
 import css from 'appAssets/css/profile.module.css';
 
+const PAGE_TITLE = "Edit your profile"
+
 const About = props => {
   const generateHandler = fieldName => event => {
     props.handleProfileInputChange(fieldName, event.currentTarget.value);
@@ -316,9 +318,9 @@ class AboutContainer extends Component {
     const props = this.props;
 
     return (
-      <EditProfileLayout {...props}>
+      <EditProfileLayout title={PAGE_TITLE} {...props}>
         <div className={css.section}>
-          <h1 className={css.header}>Edit your profile</h1>
+          <h1 className={css.header}>{PAGE_TITLE}</h1>
         </div>
         <About
           handleSubmit={event => {

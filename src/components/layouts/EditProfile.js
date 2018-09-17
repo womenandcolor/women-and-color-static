@@ -8,7 +8,7 @@ import css from 'appAssets/css/profile.module.css'
 
 const EditProfile = props => {
   return (
-    <DefaultLayout location={props.location}>
+    <DefaultLayout title={props.title} location={props.location}>
       <Grid container justify="center">
         <Grid item xs={11} md={8}>
           <Grid container className={css.editProfileContainer} spacing={24}>

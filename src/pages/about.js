@@ -4,9 +4,11 @@ import Grid from '@material-ui/core/Grid';
 import DefaultLayout from '../components/layouts/Default';
 import css from 'appAssets/css/about.module.css';
 
+const PAGE_TITLE = 'About Us'
+
 const AboutUs = (props) => {
   return(
-    <DefaultLayout {...props}>
+    <DefaultLayout title={PAGE_TITLE} {...props}>
       <Grid container justify="center">
         <Grid item xs={12}>
           <Grid container justify="center" className={css.header}>
