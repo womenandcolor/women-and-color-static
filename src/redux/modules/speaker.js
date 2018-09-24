@@ -58,8 +58,8 @@ export function getSpeaker(id, fullName = '') {
       })
       .catch(err => {
         console.log('err', err)
-        dispatch(showNotification('This profile is not available.'))
         navigate('/');
+        dispatch(showNotification('This profile is not available.'))
       });
   };
 }

@@ -29,31 +29,37 @@ const loggedOutMenuItems = {
   ],
 };
 
-const loggedInMenuItems = profileId => {
+const cleanName = str => encodeURIComponent(str.trim().replace(/\W+/g, '-'))
+
+const loggedInMenuItems = profile => {
+
+  const viewProfileButton = profile.status === "approved" ?
+    {
+      title: 'View profile',
+      slug: `/speakers/${profile.id}/${cleanName(profile.display_name)}`,
+      color: 'primary',
+    } :
+    {
+      title: 'Preview profile',
+      slug: `/profile/preview?id=${profile.id}`,
+      color: 'primary',
+    }
+
   return {
     default: [
-      { title: 'Edit profile', slug: '/profile/about', color: 'primary' },
+      { title: 'Edit profile', slug: '/profile/about/', color: 'primary' },
     ],
-    '/profile/about': [
-      {
-        title: 'View profile',
-        slug: `/speaker/${profileId}`,
-        color: 'primary',
-      },
+    '/profile/about/': [
+      viewProfileButton,
     ],
-    '/profile/talks': [
-      {
-        title: 'View profile',
-        slug: `/speaker/${profileId}`,
-        color: 'primary',
-      },
+    '/profile/talks/': [
+      viewProfileButton,
     ],
-    '/profile/account': [
-      {
-        title: 'View profile',
-        slug: `/speaker/${profileId}`,
-        color: 'primary',
-      },
+    '/profile/account/': [
+      viewProfileButton,
+    ],
+    '/profile/communication/' : [
+      viewProfileButton,
     ],
   };
 };
@@ -66,7 +72,7 @@ class Navigation extends Component {
 
   menuItemsList = (location, authed, profile) => {
     const menuItemsObj = authed
-      ? loggedInMenuItems(profile.id)
+      ? loggedInMenuItems(profile)
       : loggedOutMenuItems;
 
     if (location && menuItemsObj[location.pathname]) {

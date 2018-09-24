@@ -194,8 +194,8 @@ export function create() {
           })
         );
         dispatch(get())
-        dispatch(showNotification('Your account has been created.'));
         navigate(registrationFlow[page].next);
+        dispatch(showNotification('Your account has been created.'));
       })
       .catch(err => {
         console.log(err);
@@ -325,8 +325,8 @@ export function login() {
           })
         );
         dispatch(get());
-        dispatch(showNotification('Welcome back!'));
         navigate('/profile/about/');
+        dispatch(showNotification('Welcome back!'));
       })
       .catch(err => {
         console.log(err);

@@ -15,7 +15,7 @@ const Notification = props => {
       open={!!props.notification}
       onClose={props.hideNotification}
       autoHideDuration={4000}
-      SnackbarContentProps={{
+      ContentProps={{
         'aria-describedby': 'message-id',
       }}
       message={<span id="message-id">{props.notification}</span>}

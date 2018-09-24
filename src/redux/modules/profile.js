@@ -1,5 +1,5 @@
 // NPM
-import { push } from 'gatsby';
+import { navigate } from 'gatsby';
 import { omitBy, isNil } from 'lodash';
 
 // App
@@ -89,8 +89,8 @@ export function update() {
       }
     }).then(res => {
       dispatch(putSuccess(res.data));
+      if (res.data.page) navigate(registrationFlow[res.data.page].next);
       dispatch(showNotification('Your profile has been updated.'));
-      if (res.data.page) dispatch(push(registrationFlow[res.data.page].next));
     }).catch(err => {
       console.log(err);
       if (err.response.status === 401) {

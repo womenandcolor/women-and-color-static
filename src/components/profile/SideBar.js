@@ -7,10 +7,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import css from 'appAssets/css/profile.module.css';
 
 const tabs = [
-  { url: '/profile/about', text: 'about' },
-  { url: '/profile/talks', text: 'talks' },
-  { url: '/profile/account', text: 'account' },
-  { url: '/profile/communication', text: 'communication' },
+  { url: '/profile/about/', text: 'about' },
+  { url: '/profile/talks/', text: 'talks' },
+  { url: '/profile/account/', text: 'account' },
+  { url: '/profile/communication/', text: 'communication' },
 ]
 
 const SideBarLink = ({ to, text, isActive }) => (
