@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getSpeaker } from 'appRedux/modules/speaker';
 import Grid from '@material-ui/core/Grid';
 import ReactLoading from 'react-loading';
+import Helmet from 'react-helmet';
 
 // App
 import SpeakerCard from 'appComponents/speakers/SpeakerCard';
@@ -72,17 +73,22 @@ class SpeakerContainer extends Component {
     const description = this.generateDescription(speaker);
 
     return(
-      <div>
-        <DefaultLayout title={title} description={description} {...this.props}>
-        {
-          this.props.speaker ? (
-            <Speaker speaker={this.props.speaker} />
-          ) : (
-            <ReactLoading type="spinningBubbles" color="#E5E8F4" />
-          )
-        }
-        </DefaultLayout>
-      </div>
+      <DefaultLayout title={title} description={description} {...this.props}>
+        <Helmet>
+          <meta name="og:title" content={title} />
+          <meta name="og:type" content='website' />
+          <meta name="og:image" content={this.props.data.profile.image} />
+          <meta name="og:url" content={`${process.env.GATSBY_URL_ORIGIN}${this.props.location.pathname}`} />
+          <meta name="og:description" content={description} />
+        </Helmet>
+      {
+        this.props.speaker ? (
+          <Speaker speaker={this.props.speaker} />
+        ) : (
+          <ReactLoading type="spinningBubbles" color="#E5E8F4" />
+        )
+      }
+      </DefaultLayout>
     )
   }
 }
