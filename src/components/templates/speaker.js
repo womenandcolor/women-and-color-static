@@ -54,32 +54,31 @@ class SpeakerContainer extends Component {
     const position = model.position || "undisclosed position";
     const organization = model.organization || "undisclosed organization";
 
-
     return `${firstName} ${lastName}, ${position} at ${organization}`
   }
 
-  generateDescription = speaker => {
-    if (speaker) {
-      const threeTopics = speaker.topics.slice(0,2).map(topic => topic.topic).join(', ')
-      return `${speaker.first_name} ${speaker.last_name} is available for speaking opportunities at tech-related events on ${threeTopics} and more.`
-    }
+  generateDescription = (speaker, profile) => {
+    const model = speaker || profile;
+    const topics = model.topics.slice(0,2).map(topic => topic.topic).join(', ');
+    const firstName = model.first_name || "This speaker";
+    const lastName = model.last_name || "";
 
-    return 'Find talented diverse speakers for tech-related events'
+    return `${firstName} ${lastName} is available for speaking opportunities at tech-related events on ${topics} and more.`
   }
 
   render() {
     const { speaker } = this.props;
     const title = this.generateTitle(speaker, this.props.data.profile);
-    const description = this.generateDescription(speaker);
+    const description = this.generateDescription(speaker, this.props.data.profile);
 
     return(
       <DefaultLayout title={title} description={description} {...this.props}>
         <Helmet>
-          <meta name="og:title" content={title} />
-          <meta name="og:type" content='website' />
-          <meta name="og:image" content={this.props.data.profile.image} />
-          <meta name="og:url" content={`${process.env.GATSBY_URL_ORIGIN}${this.props.location.pathname}`} />
-          <meta name="og:description" content={description} />
+          <meta property="og:title" content={title} />
+          <meta property="og:type" content="website" />
+          <meta property="og:image" content={this.props.data.profile.image} />
+          <meta property="og:url" content={`${process.env.GATSBY_URL_ORIGIN}${this.props.location.pathname}`} />
+          <meta property="og:description" content={description} />
         </Helmet>
       {
         this.props.speaker ? (
@@ -118,10 +117,16 @@ export const query = graphql`
       display_name
       first_name
       last_name
+      position
+      organization
       published
       status
       image
       user
+      topics {
+        topic
+        id
+      }
     }
   }
 `;
