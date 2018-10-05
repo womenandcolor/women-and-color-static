@@ -1,26 +1,21 @@
-# gatsby-starter-default
-The default Gatsby starter.
+# Women and Color - Frontend
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
+## Install the Gatsby CLI
 
-## Install
-
-Make sure that you have the Gatsby CLI program installed:
+With NPM:
 ```sh
 npm install --global gatsby-cli
 ```
-
-And run from your CLI:
+With Yarn:
 ```sh
-gatsby new gatsby-example-site
+yarn global add gatsby-cli
 ```
 
-Then you can run it by:
+## Getting Started
+
+- Clone the repo and install dependencies with `yarn` or `npm install`
+- Start the [backend server](https://github.com/womenandcolor/women-and-color-backend)
+- Build and run the frontend:
 ```sh
-cd gatsby-example-site
-gatsby develop
+yarn start
 ```
-
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
