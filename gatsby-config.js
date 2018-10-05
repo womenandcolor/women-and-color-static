@@ -17,6 +17,12 @@ module.exports = {
         icon: 'src/assets/images/favicon.png', // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-plugin-drift',
+      options: {
+        appId: 'nbcmwsp2pvff',
+      },
+    },
     'gatsby-plugin-offline'
   ],
 }

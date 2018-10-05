@@ -73,7 +73,6 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-        // Create pages for each markdown file.
         result.data.allProfile.edges.forEach(({ node }) => {
           const template = path.resolve(
             `src/components/templates/speaker.js`
