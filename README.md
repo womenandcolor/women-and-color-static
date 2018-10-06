@@ -12,6 +12,7 @@ We use the [Material-UI][material-ui] component library, as well as [CSS Modules
 
 The API is build on Django and is a separate app. The repo and instructions for running it locally are here: [women-and-color-backend][backend-code].
 
+## Install the Gatsby CLI
 
 With NPM:
 ```sh
