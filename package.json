@@ -35,11 +35,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build:local": "GATSBY_API_URL=http://localhost:8000 GATSBY_URL_ORIGIN=http://localhost:8080 gatsby build",
-    "build:staging": "GATSBY_API_URL=https://womenandcolor-api-staging.herokuapp.com GATSBY_URL_ORIGIN=https://women-and-color-static.herokuapp.com gatsby build",
-    "build:production": "GATSBY_API_URL=https://api.womenandcolor.com gatsby build",
-    "start": "GATSBY_API_URL=http://localhost:8000 gatsby develop --port 8080",
-    "serve": "GATSBY_API_URL=http://localhost:8000 gatsby serve",
+    "build": " GATSBY_API_URL=http://localhost:8000 GATSBY_URL_ORIGIN=http://localhost:8080 gatsby build",
+    "start": "GATSBY_API_URL=http://localhost:8000 GATSBY_URL_ORIGIN=http://localhost:8080 gatsby develop --port 8080",
+    "serve": "gatsby serve",
     "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "gatsby build"

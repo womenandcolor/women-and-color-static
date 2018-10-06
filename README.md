@@ -10,7 +10,7 @@ The front end is built on the [Gatsby][gatsby] framework, using [React][react] a
 
 We use the [Material-UI][material-ui] component library, as well as [CSS Modules][css-modules] for styling.
 
-The API is build on Django and is a separate app. The repo and instructions for running it locally is [women-and-color-backend][backend-code].
+The API is build on Django and is a separate app. The repo and instructions for running it locally are here: [women-and-color-backend][backend-code].
 
 
 With NPM:
