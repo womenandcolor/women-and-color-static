@@ -22,7 +22,7 @@ yarn global add gatsby-cli
 - Start the [backend server](backend-code)
 - Start the frontend in development mode:
 ```sh
-yarn develop
+yarn start
 ```
 - open `localhost:8080` on your browser to see the app
 
