@@ -12,7 +12,7 @@ We use the [Material-UI][material-ui] component library, as well as [CSS Modules
 
 The backend is build on Django and is a separate app. The repo and instructions for running it locally are here: [women-and-color-backend][backend-code].
 
-## Getting Started
+## Install the Gatsby CLI
 
 - Install the Gatsby CLI:
 ```sh
@@ -22,21 +22,21 @@ yarn global add gatsby-cli
 - Start the [backend server](backend-code)
 - Start the frontend in development mode:
 ```sh
-yarn start
+yarn develop
 ```
 - open `localhost:8080` on your browser to see the app
 
-## Bridge Contributors!! 
+## Bridge Contributors!!
 
 ### Using Git
 
-- The `feature` branch should be your base branch for this project. 
+- The `feature` branch should be your base branch for this project.
 - To contribute, you can either clone or fork this repo, then create your own branch off of the `feature` branch. Make your changes on that branch, then open a pull request back into the `feature` branch. Once your PR is approved and the code is merged, pull from `feature` and start a new branch for the next step in your development process.
 - Whenever a new commit is made on the `feature` branch, it gets automatically deployed to Heroku, so you can see the live app here: https://job-board-bridge.herokuapp.com.
 
 ### Developing with Gatsby
 
-Gatsby is a static site builder framework that uses React and GraphQL. They have great [documentation][gatsby], make sure to check it out. Basically, you develop your app in React and Gatsby takes care of compiling the javascript and rendering it into a static site that can deployed anywhere as a set of HTML, CSS, and JS files. 
+Gatsby is a static site builder framework that uses React and GraphQL. They have great [documentation][gatsby], make sure to check it out. Basically, you develop your app in React and Gatsby takes care of compiling the javascript and rendering it into a static site that can deployed anywhere as a set of HTML, CSS, and JS files.
 
 #### Routing and adding new pages
 
@@ -44,7 +44,7 @@ Gatsby handles routing, and the routes are based on the structure of the `/src/p
 
 #### Server-side rendering limitations
 
-An important "gotcha" with Gatsby is that since it's rendered server-side, there can't be any references to the DOM or `window` or any other browser API that wouldn't be available in a node environment. It's easy to get tripped up because those errors won't come up in development mode, you'll only see them when you run `yarn build` to build the app for production. 
+An important "gotcha" with Gatsby is that since it's rendered server-side, there can't be any references to the DOM or `window` or any other browser API that wouldn't be available in a node environment. It's easy to get tripped up because those errors won't come up in development mode, you'll only see them when you run `yarn build` to build the app for production.
 
 #### Data in Gatsby
 
