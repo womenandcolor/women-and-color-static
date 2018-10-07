@@ -29,7 +29,7 @@ yarn global add gatsby-cli
 - Start the [backend server](backend-code)
 - Build and run the frontend:
 ```sh
-yarn develop
+yarn start
 ```
 
 <!-- Links -->
