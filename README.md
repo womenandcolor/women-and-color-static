@@ -14,12 +14,6 @@ The backend is build on Django and is a separate app. The repo and instructions 
 
 ## Getting Started
 
-- Clone the repo and move to the feature branch:
-```sh
-git clone git@github.com:womenandcolor/women-and-color-static.git
-cd women-and-color-static
-git checkout feature
-```
 - Install the Gatsby CLI:
 ```sh
 yarn global add gatsby-cli
@@ -54,7 +48,8 @@ There are two ways to bring data into a component when building with Gatsby - ei
 
 ### Using Redux
 
-Redux is already set up in the app, so just add your modules to the `/src/redux/modules` directory and just make sure you include the reducer in `/src/redux/reducers.js/
+Redux is already set up in the app, so just add your modules to the `/src/redux/modules` directory and just make sure you include the reducer in `/src/redux/reducers.js/`
+
 
 
 <!-- Links -->
