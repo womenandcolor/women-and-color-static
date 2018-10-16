@@ -38,7 +38,7 @@ yarn start
 
 - The `feature` branch should be your base branch for this project. 
 - To contribute, you can either clone or fork this repo, then create your own branch off of the `feature` branch. Make your changes on that branch, then open a pull request back into the `feature` branch. Once your PR is approved and the code is merged, pull from `feature` and start a new branch for the next step in your development process.
-- Whenever a new commit is made on the `feature` branch, it gets automatically deployed to Heroku, so you can see the live app here: (https://job-board-bridge.herokuapp.com/)[https://job-board-bridge.herokuapp.com/].
+- Whenever a new commit is made on the `feature` branch, it gets automatically deployed to Heroku, so you can see the live app here: https://job-board-bridge.herokuapp.com.
 
 ### Developing with Gatsby
 
