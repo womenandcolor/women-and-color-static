@@ -12,14 +12,14 @@ We use the [Material-UI][material-ui] component library, as well as [CSS Modules
 
 The backend is build on Django and is a separate app. The repo and instructions for running it locally are here: [women-and-color-backend][backend-code].
 
-## Install the Gatsby CLI
+## Getting Started
 
 - Install the Gatsby CLI:
 ```sh
 yarn global add gatsby-cli
 ```
 - Install the project dependencies: `yarn`. (See the [installation instructions][yarn-installation] if you don't have `yarn` installed)
-- Start the [backend server](backend-code)
+- Start the [backend server](backend-code). *Bridge contributors, see the note below on setting up your backend*
 - Start the frontend in development mode:
 ```sh
 yarn start
@@ -27,6 +27,13 @@ yarn start
 - open `localhost:8080` on your browser to see the app
 
 ## Bridge Contributors!!
+
+### Special instructions for the backend
+
+- your database must be seeded! Make sure you put the `womenandcolorseed.sql` file at the root of the project (job-board-backend)
+- in the `womenandcolorseed.sql` file, change the username on lines 2716 and 2724 to `postgres`
+- run `docker-compose up`
+- open `http://localhost:8081/api/v1/profiles` and make sure you see some profiles there
 
 ### Using Git
 
@@ -53,6 +60,11 @@ There are two ways to bring data into a component when building with Gatsby - ei
 ### Using Redux
 
 Redux is already set up in the app, so just add your modules to the `/src/redux/modules` directory and just make sure you include the reducer in `/src/redux/reducers.js/`
+
+
+### Troubleshooting
+
+- if you're getting errors from `gatsby-node.js`, try running `rm -rf public .cache` and then `yarn start` again.
 
 
 
