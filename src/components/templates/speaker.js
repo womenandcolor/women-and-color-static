@@ -16,6 +16,7 @@ import DefaultLayout from 'appComponents/layouts/Default';
 
 const Speaker = props => {
   const { speaker } = props;
+  console.log(speaker)
   return (
     <Grid container justify="center">
       <Grid item xs={12}>
@@ -28,7 +29,7 @@ const Speaker = props => {
           </Grid>
           <Grid item xs={12} md={8}>
             {speaker.description && <SpeakerInfo speaker={speaker} />}
-            {(!!speaker.featured_talks.length) && <FeaturedTalks talks={speaker.featured_talks} />}
+            {(speaker.featured_talks && !!speaker.featured_talks.length) && <FeaturedTalks talks={speaker.featured_talks} />}
             <ContactSpeakerForm speaker={speaker} />
           </Grid>
         </Grid>
@@ -59,7 +60,7 @@ class SpeakerContainer extends Component {
 
   generateDescription = (speaker, profile) => {
     const model = speaker || profile;
-    const topics = model.topics.slice(0,2).map(topic => topic.topic).join(', ');
+    const topics = model.topics ? model.topics.slice(0,2).map(topic => topic.topic).join(', ') : 'tech';
     const firstName = model.first_name || "This speaker";
     const lastName = model.last_name || "";
 
@@ -130,3 +131,4 @@ export const query = graphql`
     }
   }
 `;
+

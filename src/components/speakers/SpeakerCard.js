@@ -67,7 +67,7 @@ const SpeakerCard = ({ speaker, classes }) => {
               <p className={css.speakerCardOrganization}>
                 {speaker.organization}
               </p>
-              {speaker.topics.length > 0 && <Topics topics={speaker.topics} />}
+              {speaker.topics && speaker.topics.length > 0 && <Topics topics={speaker.topics} />}
             </div>
           </CardContent>
           <List>
