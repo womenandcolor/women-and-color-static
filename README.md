@@ -30,10 +30,11 @@ yarn start
 
 ### Special instructions for the backend
 
-- your database must be seeded! Make sure you put the `womenandcolorseed.sql` file at the root of the project (job-board-backend)
-- in the `womenandcolorseed.sql` file, change the username on lines 2716 and 2724 to `postgres`
-- run `docker-compose up`
-- open `http://localhost:8081/api/v1/profiles` and make sure you see some profiles there
+- there are *two* backends for this project, one is the current Django backend and the other one is the shiny new Node.js backend that you're building!
+- the base URL for the Django API is stored as an environment variable `GATSBY_API_URL`. On development and staging, the value of the variable should be the staging API on heroku.
+- the base URL for the new Node.js API is stored as `GATSBY_JOBS_API_URL`. On development it should be pointing to the web server running locally from docker, i.e. `http://localhost:8081`. On staging it should be the URL for the Heroku deployment (it's already be set up so don't worry about it).
+- in your React code, you can import either of these URLs from the `src/utils/constants.js` file as `BASE_URL_PATH` and `JOBS_URL_PATH` respectively.
+
 
 ### Using Git
 
