@@ -12,8 +12,9 @@ const crypto = require('crypto');
 
 exports.sourceNodes = async ({ actions, createNodeId }) => {
   const { createNode } = actions;
-
-  const res = await axios.get(`${process.env.GATSBY_API_URL}/api/v1/profiles/`)
+  const url = `${process.env.GATSBY_API_URL}/api/v1/profiles/`
+  console.log(`Fetching profiles from ${url}`)
+  const res = await axios.get(url)
 
   const processProfile = profile => {
     const nodeId = createNodeId(`profile-${profile.id}`)

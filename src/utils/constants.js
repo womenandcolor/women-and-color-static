@@ -1,3 +1,6 @@
+export const BASE_URL_PATH = process.env.GATSBY_API_URL
+export const JOBS_URL_PATH = process.env.GATSBY_JOBS_API_URL
+
 export const registrationFlow = {
   registration: {
     next: '/get-started/profile',
@@ -26,8 +29,6 @@ export const pronounDict = {
   he: 'He, him, his',
   they: 'They, them, their',
 };
-
-export const BASE_URL_PATH = process.env.GATSBY_API_URL
 
 export const IDENTITIES = [
   { label: 'All speakers', value: { woman: null, poc: null } },
