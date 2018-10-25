@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 
 const JobButton = () => (
-    <Link to="/post-a-job">    
+    <Link to="job/new">    
         <StyledButton color="primary">
             Post a Job
         </StyledButton>
