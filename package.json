@@ -35,8 +35,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "GATSBY_JOBS_API_URL=http://localhost:8081 GATSBY_API_URL=https://womenandcolor-api-staging.herokuapp.com GATSBY_URL_ORIGIN=http://localhost:8080 gatsby build",
-    "start": "GATSBY_JOBS_API_URL=http://localhost:8081 GATSBY_API_URL=https://womenandcolor-api-staging.herokuapp.com GATSBY_URL_ORIGIN=http://localhost:8080 gatsby develop --port 8080",
+    "build": "gatsby build",
+    "start": "gatsby develop --port 8080",
     "serve": "gatsby serve",
     "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
