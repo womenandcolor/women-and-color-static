@@ -36,6 +36,7 @@ const Home = ({
   speakers,
   endOfResults,
   loadMoreSpeakers,
+  isLoading,
   ...rest
 }) => {
   const searchQuery = searchParams.q ? `'${searchParams.q}'` : 'all topics';
@@ -79,6 +80,7 @@ const Home = ({
                 endOfResults={endOfResults}
                 loadMoreSpeakers={loadMoreSpeakers}
                 location={rest.location}
+                isLoading={isLoading}
               />
             </Grid>
           </Grid>
@@ -124,6 +126,7 @@ const mapStateToProps = state => {
     locations: state.location.locations,
     searchParams: state.speaker.searchParams,
     endOfResults: state.speaker.endOfResults,
+    isLoading: state.speaker.isLoading,
   };
 };
 
