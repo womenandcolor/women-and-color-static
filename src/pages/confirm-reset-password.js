@@ -1,9 +1,9 @@
 // Project
 import React from 'react'
 import { connect } from 'react-redux'
-import { Router } from "@reach/router"
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+import queryString from 'query-string';
 
 // App
 import {
@@ -12,12 +12,12 @@ import {
 } from 'appRedux/modules/user';
 import StyledButton from 'appCommon/StyledButton';
 import FormField from 'appCommon/FormField';
-import AccountFormContainer from '../../components/layouts/AccountFormContainer';
-import DefaultLayout from '../../components/layouts/Default';
+import AccountFormContainer from '../components/layouts/AccountFormContainer';
+import DefaultLayout from '../components/layouts/Default';
 
 import css from 'appAssets/css/accounts.module.css';
 
-const PAGE_TITLE = "Confirm password reset"
+const PAGE_TITLE = "Confirm reset password"
 
 const ConfirmPasswordReset = ({ handleUserInputChange, handleSubmit, user, ...rest }) => {
   const generateHandler = (fieldName) => {
@@ -70,8 +70,8 @@ class ConfirmPasswordResetContainer extends React.Component {
   }
 
   componentDidMount() {
-    const { uid, token } = this.props;
-    this.setState({ uid, token })
+    const parsedParams = queryString.parse(this.props.location.search)
+    this.setState({ uid: parsedParams.uid, token: parsedParams.token })
   }
 
   render() {
@@ -91,12 +91,6 @@ class ConfirmPasswordResetContainer extends React.Component {
     )
   }
 }
-
-const AccountsApp = ({ path, ...rest }) => (
-  <Router>
-    <ConfirmPasswordResetContainer path="accounts/reset/:uid/:token" {...rest} />
-  </Router>
-)
 
 
 function mapStateToProps(state) {
@@ -119,4 +113,4 @@ function mapDispatchToProps(dispatch, props) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AccountsApp);
+)(ConfirmPasswordResetContainer);
