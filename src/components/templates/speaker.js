@@ -15,11 +15,11 @@ import Header from 'appComponents/header/Header';
 import DefaultLayout from 'appComponents/layouts/Default';
 
 const Speaker = props => {
-  const { speaker } = props;
+  const { speaker, ...rest } = props;
   return (
     <Grid container justify="center">
       <Grid item xs={12}>
-        <Header />
+        <Header location={rest.location} />
       </Grid>
       <Grid item xs={9}>
         <Grid container spacing={24}>
@@ -67,7 +67,7 @@ class SpeakerContainer extends Component {
   }
 
   render() {
-    const { speaker } = this.props;
+    const { speaker, ...rest } = this.props;
     const title = this.generateTitle(speaker, this.props.data.profile);
     const description = this.generateDescription(speaker, this.props.data.profile);
 
@@ -82,7 +82,7 @@ class SpeakerContainer extends Component {
         </Helmet>
       {
         this.props.speaker ? (
-          <Speaker speaker={this.props.speaker} />
+          <Speaker speaker={this.props.speaker} {...rest} />
         ) : (
           <ReactLoading type="spinningBubbles" color="#E5E8F4" />
         )

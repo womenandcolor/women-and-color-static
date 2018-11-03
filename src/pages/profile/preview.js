@@ -15,11 +15,11 @@ import DefaultLayout from 'appComponents/layouts/Default';
 import { showNotification } from 'appRedux/modules/notification';
 
 const Speaker = props => {
-  const { speaker } = props;
+  const { speaker, ...rest } = props;
   return (
     <Grid container justify="center">
       <Grid item xs={12}>
-        <Header />
+        <Header location={rest.location} />
       </Grid>
       <Grid item xs={9}>
         <Grid container spacing={24}>
@@ -73,7 +73,7 @@ class SpeakerContainer extends Component {
   }
 
   render() {
-    const { speaker } = this.props;
+    const { speaker, ...rest } = this.props;
     const title = this.generateTitle(speaker, {});
     const description = this.generateDescription(speaker);
 
@@ -82,7 +82,7 @@ class SpeakerContainer extends Component {
         <DefaultLayout title={title} description={description} {...this.props}>
         {
           this.props.speaker ? (
-            <Speaker speaker={this.props.speaker} />
+            <Speaker speaker={this.props.speaker} {...rest} />
           ) : (
             <ReactLoading type="spinningBubbles" color="#E5E8F4" />
           )
