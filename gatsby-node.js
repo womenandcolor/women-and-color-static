@@ -9,11 +9,17 @@
 const path = require('path');
 const axios = require('axios');
 const crypto = require('crypto');
+const dotenv = require('dotenv');
+
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 exports.sourceNodes = async ({ actions, createNodeId }) => {
   const { createNode } = actions;
-
-  const res = await axios.get(`${process.env.GATSBY_API_URL}/api/v1/profiles/`)
+  const url = `${process.env.GATSBY_API_URL}/api/v1/profiles/`
+  console.log(`Fetching profiles from ${url}`)
+  const res = await axios.get(url)
 
   const processProfile = profile => {
     const nodeId = createNodeId(`profile-${profile.id}`)
