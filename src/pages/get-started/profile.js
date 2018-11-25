@@ -10,6 +10,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import ReactLoading from 'react-loading';
 
 // App
@@ -125,6 +126,38 @@ const Profile = props => {
             }
             onChange={generateHandler('poc')}
           >
+            <FormControlLabel
+              value="true"
+              control={<Radio color="primary" />}
+              label="Yes"
+            />
+            <FormControlLabel
+              value="false"
+              control={<Radio color="primary" />}
+              label="No"
+            />
+          </RadioGroup>
+        </FormField>
+
+
+        <FormField fullWidth className={css.formControl}>
+          <FormLabel component="legend">
+            Do you identify as a member of the LGBTQA+ community?
+          </FormLabel>
+          <FormHelperText>
+          The response of this question will not appear publicly. We will use this information internally to provide you with opportunities and promotions tailored specifically to LGBTQA+ folks.
+          </FormHelperText>
+          <RadioGroup
+            aria-label="lgbtqa"
+            name="lgbtqa"
+            value={ props.profile.lgbtqa === null ? 'null' : props.profile.lgbtqa.toString() }
+            onChange={generateHandler('lgbtqa')}
+          >
+            <FormControlLabel
+              value="null"
+              control={<Radio color="primary" />}
+              label="Prefer not to answer"
+            />
             <FormControlLabel
               value="true"
               control={<Radio color="primary" />}
