@@ -23,6 +23,14 @@ module.exports = {
         appId: 'nbcmwsp2pvff',
       },
     },
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: `UA-76994229-1`,
+        head: false,
+        anonymize: true,
+      },
+    },
     'gatsby-plugin-offline'
   ],
 }
