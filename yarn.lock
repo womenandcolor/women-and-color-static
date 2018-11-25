@@ -4635,6 +4635,11 @@ gatsby-plugin-drift@^1.0.0:
   dependencies:
     babel-runtime "^6.26.0"
 
+gatsby-plugin-gtag@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-gtag/-/gatsby-plugin-gtag-1.0.4.tgz#9aa8e44e842a26903f26dd76c6097fbf85670cf2"
+  integrity sha512-QmFv0Rm5ZfAIXtI4MZwHJ7M7x6f0/ZzCvNnRZDReCUSCwwSx44oKe0GjJwBJ/Z9DRLmPjfs0zRvvkQFKNRtDRg==
+
 gatsby-plugin-manifest@next:
   version "2.0.2-rc.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.2-rc.1.tgz#635cf3febe64b2d6420d6e6bbf3ade660dd5288a"

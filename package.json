@@ -15,6 +15,7 @@
     "downshift": "^2.2.2",
     "gatsby": "next",
     "gatsby-plugin-drift": "^1.0.0",
+    "gatsby-plugin-gtag": "^1.0.4",
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-react-helmet": "next",
