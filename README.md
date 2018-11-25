@@ -54,6 +54,28 @@ There are two ways to bring data into a component when building with Gatsby - ei
 
 Redux is already set up in the app, so just add your modules to the `/src/redux/modules` directory and just make sure you include the reducer in `/src/redux/reducers.js/`
 
+## Deployment
+
+[**Heroku**][heroku] is a platform for easily deploying applications.
+
+A [**buildpack**][buildpack] provides framework and runtime support for apps running on
+platforms like Heroku.
+
+* We auto-deploy the `staging` branch to our staging website on Heroku:
+  [`women-and-color-staging.herokuapp.com`][site-staging]. (So merging a
+  pull request also auto-deploys!)
+* We use two buildpacks: `heroku/nodejs` and [`heroku-buildpack-static`](https://github.com/heroku/heroku-buildpack-static)
+
+## License & Copyright
+
+Copyright (C) 2017 Women and Color
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3.0.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the [`LICENSE`](/LICENSE) file for details.
+
+
 
 
 <!-- Links -->
