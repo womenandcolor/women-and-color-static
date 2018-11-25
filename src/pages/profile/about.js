@@ -210,7 +210,7 @@ const About = props => {
             </FormField>
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <FormField fullWidth className={css.formControl}>
               <FormLabel component="legend">
                 What pronouns do you use?
@@ -235,6 +235,43 @@ const About = props => {
                   value="he"
                   control={<Radio color="primary" />}
                   label="He, him, his"
+                />
+              </RadioGroup>
+            </FormField>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <FormField fullWidth className={css.formControl}>
+              <FormLabel component="legend">
+                Do you identify as a member of the LGBTQA+ community?
+              </FormLabel>
+              <FormHelperText>
+                The response of this question will not appear publicly. We will use this information internally to provide you with opportunities and promotions tailored specifically to LGBTQA+ folks.
+              </FormHelperText>
+              <RadioGroup
+                aria-label="lgbtqa"
+                name="lgbtqa"
+                value={
+                  props.profile.lgbtqa === null
+                    ? 'null'
+                    : props.profile.lgbtqa.toString()
+                }
+                onChange={generateHandler('lgbtqa')}
+              >
+                <FormControlLabel
+                  value="null"
+                  control={<Radio color="primary" />}
+                  label="Prefer not to answer"
+                />
+                <FormControlLabel
+                  value="true"
+                  control={<Radio color="primary" />}
+                  label="Yes"
+                />
+                <FormControlLabel
+                  value="false"
+                  control={<Radio color="primary" />}
+                  label="No"
                 />
               </RadioGroup>
             </FormField>
