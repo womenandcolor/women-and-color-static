@@ -259,11 +259,6 @@ const About = props => {
                 onChange={generateHandler('lgbtqa')}
               >
                 <FormControlLabel
-                  value="null"
-                  control={<Radio color="primary" />}
-                  label="Prefer not to answer"
-                />
-                <FormControlLabel
                   value="true"
                   control={<Radio color="primary" />}
                   label="Yes"
@@ -272,6 +267,11 @@ const About = props => {
                   value="false"
                   control={<Radio color="primary" />}
                   label="No"
+                />
+                <FormControlLabel
+                  value="null"
+                  control={<Radio color="primary" />}
+                  label="Prefer not to say"
                 />
               </RadioGroup>
             </FormField>
