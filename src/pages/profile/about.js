@@ -213,36 +213,6 @@ const About = props => {
           <Grid item xs={12} sm={6}>
             <FormField fullWidth className={css.formControl}>
               <FormLabel component="legend">
-                What pronouns do you use?
-              </FormLabel>
-              <RadioGroup
-                aria-label="pronouns"
-                name="pronouns"
-                value={props.profile.pronouns || 'they'}
-                onChange={generateHandler('pronouns')}
-              >
-                <FormControlLabel
-                  value="they"
-                  control={<Radio color="primary" />}
-                  label="They, them, their"
-                />
-                <FormControlLabel
-                  value="she"
-                  control={<Radio color="primary" />}
-                  label="She, her, her"
-                />
-                <FormControlLabel
-                  value="he"
-                  control={<Radio color="primary" />}
-                  label="He, him, his"
-                />
-              </RadioGroup>
-            </FormField>
-          </Grid>
-
-          <Grid item xs={12} sm={6}>
-            <FormField fullWidth className={css.formControl}>
-              <FormLabel component="legend">
                 Do you identify as a member of the LGBTQA+ community?
               </FormLabel>
               <FormHelperText>
@@ -272,6 +242,36 @@ const About = props => {
                   value="null"
                   control={<Radio color="primary" />}
                   label="Prefer not to say"
+                />
+              </RadioGroup>
+            </FormField>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <FormField fullWidth className={css.formControl}>
+              <FormLabel component="legend">
+                What pronouns do you use?
+              </FormLabel>
+              <RadioGroup
+                aria-label="pronouns"
+                name="pronouns"
+                value={props.profile.pronouns || 'they'}
+                onChange={generateHandler('pronouns')}
+              >
+                <FormControlLabel
+                  value="they"
+                  control={<Radio color="primary" />}
+                  label="They, them, their"
+                />
+                <FormControlLabel
+                  value="she"
+                  control={<Radio color="primary" />}
+                  label="She, her, her"
+                />
+                <FormControlLabel
+                  value="he"
+                  control={<Radio color="primary" />}
+                  label="He, him, his"
                 />
               </RadioGroup>
             </FormField>
