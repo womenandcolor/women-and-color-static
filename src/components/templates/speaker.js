@@ -24,7 +24,7 @@ const Speaker = props => {
       <Grid item xs={9}>
         <Grid container spacing={24}>
           <Grid item xs={12} md={4}>
-            <SpeakerCard speaker={speaker} />
+            <SpeakerCard speaker={speaker} location={rest.location} />
           </Grid>
           <Grid item xs={12} md={8}>
             {speaker.description && <SpeakerInfo speaker={speaker} />}
