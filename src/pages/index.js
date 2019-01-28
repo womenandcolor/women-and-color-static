@@ -55,7 +55,7 @@ const Home = ({
         <meta property="og:title" content={PAGE_TITLE} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.womenandcolor.com/" />
-        <meta property="og:image" content={`https://www.womenandcolor.com/ + ${ogImage}`} />
+        <meta property="og:image" content={`https://www.womenandcolor.com${ogImage}`} />
         <meta property="og:description" content="Find talented women and people of color available for speaking opportunities at tech-related events." />
       </Helmet>
       <Grid container justify="center" spacing={0}>
