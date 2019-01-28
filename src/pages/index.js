@@ -18,6 +18,7 @@ import { DEFAULT_SPEAKER_LIMIT } from 'appHelpers/constants';
 import DefaultLayout from '../components/layouts/Default';
 
 import css from 'appAssets/css/index.module.css';
+import ogImage from 'appAssets/images/opengraph.jpg';
 
 const PAGE_TITLE = "Women and Color"
 
