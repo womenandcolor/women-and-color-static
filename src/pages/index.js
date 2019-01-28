@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import { find } from 'lodash';
+import { Helmet } from 'react-helmet'
 
 // APP
 import SpeakerList from '../components/speakers/SpeakerList';
@@ -48,6 +49,14 @@ const Home = ({
 
   return (
     <DefaultLayout title={PAGE_TITLE} {...rest} >
+      <Helmet>
+        <meta name="google-site-verification" content="NQzKjXT5c_JQDVaZVgknGWG_gLQdfr7cF68EpsKYmbs" />
+        <meta property="og:title" content={PAGE_TITLE} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.womenandcolor.com/" />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:description" content="Find talented women and people of color available for speaking opportunities at tech-related events." />
+      </Helmet>
       <Grid container justify="center" spacing={0}>
         <Grid item xs={12}>
           <Header location={rest.location} />
