@@ -16,6 +16,9 @@ import AccountFormContainer from '../components/layouts/AccountFormContainer';
 import DefaultLayout from '../components/layouts/Default';
 
 import css from 'appAssets/css/accounts.module.css';
+import ogImage from 'appAssets/images/opengraph.jpg';
+
+import { Helmet } from 'react-helmet'
 
 const PAGE_TITLE = "Confirm reset password"
 
@@ -26,6 +29,13 @@ const ConfirmPasswordReset = ({ handleUserInputChange, handleSubmit, user, ...re
 
   return(
     <DefaultLayout title={PAGE_TITLE} {...rest}>
+      <Helmet>
+        <meta property="og:title" content={PAGE_TITLE} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.womenandcolor.com/" />
+        <meta property="og:image" content={`https://www.womenandcolor.com${ogImage}`} />
+        <meta property="og:description" content="Find talented women and people of color available for speaking opportunities at tech-related events." />
+      </Helmet>
       <AccountFormContainer>
         <form onSubmit={ handleSubmit }>
           <h1 className={css.title}>Enter your new password</h1>
