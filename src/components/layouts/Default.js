@@ -30,10 +30,6 @@ class Layout extends React.Component {
             name="Description"
             content={props.description || DEFAULT_PAGE_DESCRIPTION}
           />
-          <meta property="og:title" content={props.title || DEFAULT_PAGE_TITLE} />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content={`https://www.womenandcolor.com/${this.props['*']}`} />
-          <meta property="og:description" content={props.description || DEFAULT_PAGE_DESCRIPTION} />
           <link rel="shortcut icon" type="image/png" href={favicon} />
         </Helmet>
         <Notification />
