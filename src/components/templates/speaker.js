@@ -77,7 +77,7 @@ class SpeakerContainer extends Component {
           <meta property="og:title" content={title} />
           <meta property="og:type" content="website" />
           <meta property="og:image" content={this.props.data.profile.image} />
-          <meta property="og:url" content={`${process.env.GATSBY_URL_ORIGIN}${this.props.location.pathname}`} />
+          <meta property="og:url" content={`https://www.womenandcolor.com/${this.props['*']}`} />
           <meta property="og:description" content={description} />
         </Helmet>
       {
