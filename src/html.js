@@ -25,7 +25,7 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{
             __html: `
             var _rollbarConfig = {
-                accessToken: ,
+                accessToken: ${process.env.ROLLBAR_ACCESS_TOKEN},
                 captureUncaught: true,
                 captureUnhandledRejections: true,
                 payload: {
