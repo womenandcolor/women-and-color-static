@@ -31,6 +31,18 @@ module.exports = {
         anonymize: true,
       },
     },
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    {
+      resolve: "gatsby-plugin-rollbar",
+      options: {
+        accessToken: "f9239110d8ed4032acc4fee19344adcf",
+        // For all configuration options, see https://docs.rollbar.com/v1.0.0/docs/rollbarjs-configuration-reference
+        captureUncaught: true,
+        captureUnhandledRejections: true,
+        payload: {
+          environment: "production"
+        }
+      }
+    }
   ],
 }
