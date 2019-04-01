@@ -2,7 +2,6 @@
 import React from 'react';
 import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
-import { Link } from 'gatsby';
 
 // App
 
@@ -33,24 +32,27 @@ function buildTitle(position, organization) {
 
 const cleanName = str => encodeURIComponent(str.trim().replace(/\W+/g, '-'))
 
+const ProfileLink = props => <a href={props.to} rel="noopener noreferrer" target="_blank" {...props}>{props.children}</a>;
+
 const SpeakerCard = ({ speaker, classes, location }) => {
   const name = !!speaker.display_name ? speaker.display_name : speaker.email;
   const title = buildTitle(speaker.position, speaker.organization);
-  const speakerProfilePath = `/speakers/${speaker.id}/${cleanName(speaker.display_name)}`
+  const speakerProfilePath = `/speakers/${speaker.id}/${cleanName(speaker.display_name)}`;
+
   return (
     <Grid item xs={12} className={css.contentCard}>
       <Grid container spacing={16}>
         <Grid item xs={3} md={3}>
           <div className={css.speakerPhoto}>
-          <Link to={speakerProfilePath} className={profilePhoto}>
+          <a href={speakerProfilePath} className={profilePhoto} rel="noopener noreferrer" target="_blank">
             <img src={speaker.image} alt={name} />
-          </Link>
+          </a>
           </div>
         </Grid>
         <Grid item xs={9} md={7} className={css.info}>
-          <Link to={speakerProfilePath}>
+          <a href={speakerProfilePath} rel="noopener noreferrer" target="_blank">
             <h3 className={css.name}>{name}</h3>
-          </Link>
+          </a>
           {title}
           { (speaker.topics.length > 0) &&
             <Hidden smDown>
@@ -63,8 +65,9 @@ const SpeakerCard = ({ speaker, classes, location }) => {
             <StyledButton
               color="primary"
               label="View profile"
-              component={Link}
+              component={ProfileLink}
               to={speakerProfilePath}
+              target="_blank"
             >
               View profile
             </StyledButton>
