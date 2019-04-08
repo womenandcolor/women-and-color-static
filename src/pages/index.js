@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import { find } from 'lodash';
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet';
 
 // APP
 import SpeakerList from '../components/speakers/SpeakerList';
@@ -20,7 +20,7 @@ import DefaultLayout from '../components/layouts/Default';
 import css from 'appAssets/css/index.module.css';
 import ogImage from 'appAssets/images/opengraph.jpg';
 
-const PAGE_TITLE = "Women and Color"
+const PAGE_TITLE = 'Women and Color';
 
 const searchParamsToSpeakerIdentity = ({ poc, woman }) => {
   if (!poc && !woman) {
@@ -42,21 +42,28 @@ const Home = ({
   ...rest
 }) => {
   const searchQuery = searchParams.q ? `'${searchParams.q}'` : 'all topics';
-  const locationObj = find(locations, { id: parseInt(searchParams.location) })
-  const location = locationObj
-    ? locationObj.city
-    : 'all cities';
+  const locationObj = find(locations, { id: parseInt(searchParams.location) });
+  const location = locationObj ? locationObj.city : 'all cities';
   const speakerIdentity = searchParamsToSpeakerIdentity(searchParams);
 
   return (
-    <DefaultLayout title={PAGE_TITLE} {...rest} >
+    <DefaultLayout title={PAGE_TITLE} {...rest}>
       <Helmet>
-        <meta name="google-site-verification" content="NQzKjXT5c_JQDVaZVgknGWG_gLQdfr7cF68EpsKYmbs" />
+        <meta
+          name="google-site-verification"
+          content="NQzKjXT5c_JQDVaZVgknGWG_gLQdfr7cF68EpsKYmbs"
+        />
         <meta property="og:title" content={PAGE_TITLE} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.womenandcolor.com/" />
-        <meta property="og:image" content={`https://www.womenandcolor.com${ogImage}`} />
-        <meta property="og:description" content="Find talented women and people of color available for speaking opportunities at tech-related events." />
+        <meta
+          property="og:image"
+          content={`https://www.womenandcolor.com${ogImage}`}
+        />
+        <meta
+          property="og:description"
+          content="Find talented women and people of color available for speaking opportunities at tech-related events."
+        />
       </Helmet>
       <Grid container justify="center" spacing={0}>
         <Grid item xs={12}>
@@ -123,9 +130,7 @@ class HomeContainer extends Component {
   };
 
   render() {
-    return(
-      <Home loadMoreSpeakers={this.loadMoreSpeakers} {...this.props} />
-    )
+    return <Home loadMoreSpeakers={this.loadMoreSpeakers} {...this.props} />;
   }
 }
 
@@ -148,10 +153,13 @@ const mapDispatchToProps = dispatch => {
     updateSearchParams: params => {
       dispatch(updateSearchParams(params));
     },
-    getLocations: (opts) => {
+    getLocations: opts => {
       dispatch(getLocations(opts));
     },
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeContainer);
