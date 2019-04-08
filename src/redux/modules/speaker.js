@@ -48,7 +48,7 @@ export function fetchSpeakers(params = {}) {
       .get(`${BASE_URL_PATH}/api/v1/profiles?${queryStringforApi}`)
       .then(res => {
         if (!!queryStringforDisplay.length) {
-          navigate(`?${queryStringforDisplay}`)
+          navigate(`?${queryStringforDisplay}`);
         }
         dispatch(updateSpeakers(res.data, params.append));
       })
@@ -64,9 +64,9 @@ export function getSpeaker(id, fullName = '') {
         dispatch(updateSpeaker(res.data));
       })
       .catch(err => {
-        console.log('err', err)
+        console.log('err', err);
         navigate('/');
-        dispatch(showNotification('This profile is not available.'))
+        dispatch(showNotification('This profile is not available.'));
       });
   };
 }
@@ -74,8 +74,9 @@ export function getSpeaker(id, fullName = '') {
 // Reducer
 const INITIAL_STATE = {
   results: [],
+  allResults: [],
   endOfResults: false,
-  searchParams: { offset: 0, limit: DEFAULT_SPEAKER_LIMIT },
+  searchParams: { offset: 0, limit: DEFAULT_SPEAKER_LIMIT, q: '' },
   selectedLocation: null,
   selectedIdentity: IDENTITIES[0].label,
   speaker: null,
@@ -91,15 +92,20 @@ export const reducer = (state = INITIAL_STATE, action) => {
       };
     case UPDATE_SPEAKERS:
       if (action.append) {
+        const results = uniqBy(state.results.concat(action.results), 'id');
         return {
           ...state,
-          results: uniqBy(state.results.concat(action.results), 'id'),
+          allResults:
+            state.allResults.length === 0 ? results : state.allResults,
+          results: results,
           endOfResults: action.results.length < DEFAULT_SPEAKER_LIMIT,
           isLoading: false,
         };
       }
+      const results = uniqBy(action.results, 'id');
       return {
         ...state,
+        allResults: state.allResults.length === 0 ? results : state.allResults,
         results: uniqBy(action.results, 'id'),
         endOfResults: action.results.length < DEFAULT_SPEAKER_LIMIT,
         isLoading: false,

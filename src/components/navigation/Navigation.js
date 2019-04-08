@@ -12,14 +12,14 @@ import PropTypes from 'prop-types';
 import MenuDropdown from './MenuDropdown';
 import ButtonMenu from './ButtonMenu';
 import Logo from '../../assets/images/logo_women_and_color.svg';
-import { logout, validateToken } from 'appRedux/modules/user'
+import { logout, validateToken } from 'appRedux/modules/user';
 
 const styles = theme => ({
   root: {
     width: '100%',
     backgroundColor: theme.palette.primary.contrastText,
     color: theme.palette.secondary.dark,
-  }
+  },
 });
 
 const loggedOutMenuItems = {
@@ -29,45 +29,36 @@ const loggedOutMenuItems = {
   ],
 };
 
-const cleanName = str => encodeURIComponent(str.trim().replace(/\W+/g, '-'))
+const cleanName = str => encodeURIComponent(str.trim().replace(/\W+/g, '-'));
 
 const loggedInMenuItems = profile => {
-
-  const viewProfileButton = profile.status === "approved" ?
-    {
-      title: 'View profile',
-      slug: `/speakers/${profile.id}/${cleanName(profile.display_name)}`,
-      color: 'primary',
-    } :
-    {
-      title: 'Preview profile',
-      slug: `/profile/preview?id=${profile.id}`,
-      color: 'primary',
-    }
+  const viewProfileButton =
+    profile.status === 'approved'
+      ? {
+          title: 'View profile',
+          slug: `/speakers/${profile.id}/${cleanName(profile.display_name)}`,
+          color: 'primary',
+        }
+      : {
+          title: 'Preview profile',
+          slug: `/profile/preview?id=${profile.id}`,
+          color: 'primary',
+        };
 
   return {
     default: [
       { title: 'Edit profile', slug: '/profile/about/', color: 'primary' },
     ],
-    '/profile/about/': [
-      viewProfileButton,
-    ],
-    '/profile/talks/': [
-      viewProfileButton,
-    ],
-    '/profile/account/': [
-      viewProfileButton,
-    ],
-    '/profile/communication/' : [
-      viewProfileButton,
-    ],
+    '/profile/about/': [viewProfileButton],
+    '/profile/talks/': [viewProfileButton],
+    '/profile/account/': [viewProfileButton],
+    '/profile/communication/': [viewProfileButton],
   };
 };
 
-
 class Navigation extends Component {
   componentDidMount() {
-    this.props.validateToken()
+    this.props.validateToken();
   }
 
   menuItemsList = (location, authed, profile) => {
@@ -83,15 +74,13 @@ class Navigation extends Component {
   };
 
   render() {
-    const {
-      classes,
-      location,
-      user,
-      profile,
-      logout,
-    } = this.props;
+    const { classes, location, user, profile, logout } = this.props;
 
-    const menuItems = this.menuItemsList(location, user.isAuthenticated, profile);
+    const menuItems = this.menuItemsList(
+      location,
+      user.isAuthenticated,
+      profile
+    );
 
     return (
       <div>
@@ -101,20 +90,31 @@ class Navigation extends Component {
               <Grid item xs={12} md={9}>
                 <Grid container justify="space-between" alignItems="center">
                   <Grid item xs={6} sm={4} md={3}>
-                    <a
-                      href="/"
-                      style={{ textDecoration: 'none' }}
-                    >
-                      <img src={Logo} height="50px" width="100%" alt={'Women and Color logo'}/>
+                    <a href="/" style={{ textDecoration: 'none' }}>
+                      <img
+                        src={Logo}
+                        height="50px"
+                        width="100%"
+                        alt={'Women and Color logo'}
+                      />
                     </a>
                   </Grid>
                   <Grid item xs={6} md={4}>
                     <Grid container justify="flex-end">
                       <Hidden smDown>
-                        <ButtonMenu menuItems={menuItems} authed={user.isAuthenticated} logout={logout} />
+                        <ButtonMenu
+                          menuItems={menuItems}
+                          authed={user.isAuthenticated}
+                          logout={logout}
+                        />
                       </Hidden>
                       <Hidden mdUp>
-                        <MenuDropdown menuItems={menuItems} authed={user.isAuthenticated} logout={logout} location={location} />
+                        <MenuDropdown
+                          menuItems={menuItems}
+                          authed={user.isAuthenticated}
+                          logout={logout}
+                          location={location}
+                        />
                       </Hidden>
                     </Grid>
                   </Grid>
@@ -126,7 +126,7 @@ class Navigation extends Component {
       </div>
     );
   }
-};
+}
 
 Navigation.propTypes = {
   classes: PropTypes.object.isRequired,
@@ -142,12 +142,15 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     logout: () => {
-      dispatch(logout())
+      dispatch(logout());
     },
     validateToken: () => {
-      dispatch(validateToken())
-    }
-  }
+      dispatch(validateToken());
+    },
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Navigation));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(Navigation));
