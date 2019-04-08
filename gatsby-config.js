@@ -1,7 +1,15 @@
+const dotenv = require('dotenv')
+
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'Women and Color',
-    description: 'Find talented women and people of color available for speaking opportunities at tech-related events.'
+    description:
+      'Find talented women and people of color available for speaking opportunities at tech-related events.',
+    siteUrl: process.env.WEBSITE_URL,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -31,6 +39,18 @@ module.exports = {
         anonymize: true,
       },
     },
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-rollbar',
+      options: {
+        accessToken: 'f9239110d8ed4032acc4fee19344adcf',
+        // For all configuration options, see https://docs.rollbar.com/v1.0.0/docs/rollbarjs-configuration-reference
+        captureUncaught: true,
+        captureUnhandledRejections: true,
+        payload: {
+          environment: 'production',
+        },
+      },
+    },
   ],
 }

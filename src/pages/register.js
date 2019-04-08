@@ -16,6 +16,8 @@ import AccountFormContainer from '../components/layouts/AccountFormContainer';
 import DefaultLayout from '../components/layouts/Default'
 
 import css from 'appAssets/css/accounts.module.css';
+import ogImage from 'appAssets/images/opengraph.jpg';
+import { Helmet } from 'react-helmet'
 
 const CURRENT_PAGE = 'registration';
 const PAGE_TITLE = 'Sign up'
@@ -27,6 +29,13 @@ const Register = ({ handleSubmit, handleUserInputChange, ...rest }) => {
 
   return(
     <DefaultLayout title={PAGE_TITLE} {...rest}>
+      <Helmet>
+        <meta property="og:title" content={PAGE_TITLE} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.womenandcolor.com/" />
+        <meta property="og:image" content={`https://www.womenandcolor.com${ogImage}`} />
+        <meta property="og:description" content="Find talented women and people of color available for speaking opportunities at tech-related events." />
+      </Helmet>
       <AccountFormContainer>
         <form onSubmit={ handleSubmit }>
           <h1 className={css.title}>{PAGE_TITLE}</h1>
