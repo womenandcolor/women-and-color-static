@@ -14,6 +14,7 @@ function renderInput(inputProps) {
 
   return (
     <TextField
+      type="search"
       InputProps={{
         inputRef: ref,
         classes: {
