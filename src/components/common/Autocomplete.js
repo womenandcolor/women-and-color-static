@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import deburr from 'lodash/deburr';
 import Downshift from 'downshift';
-import { withStyles } from '@material-ui/core/styles';
 
+import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Popper from '@material-ui/core/Popper';
 import Paper from '@material-ui/core/Paper';
