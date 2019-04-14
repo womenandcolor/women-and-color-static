@@ -4,10 +4,8 @@ import Downshift from 'downshift';
 
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Popper from '@material-ui/core/Popper';
 import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
-import Chip from '@material-ui/core/Chip';
 
 function renderInput(inputProps) {
   const { InputProps, classes, ref, ...other } = inputProps;
@@ -76,8 +74,7 @@ class Autocomplete extends Component {
   };
 
   render() {
-    const { classes, placeholder, onStateChange } = this.props;
-    const { inputValue, selectedItem } = this.state;
+    const { classes } = this.props;
 
     return (
       <Downshift
