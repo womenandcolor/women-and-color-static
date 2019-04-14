@@ -9,14 +9,13 @@ import debounce from 'lodash/debounce';
 import capitalize from 'lodash/capitalize';
 
 // APP
-// import StyledButton from 'Components/common/StyledButton';
-import { fetchSpeakers, updateSearchParams } from 'Redux/modules/speaker';
-import { get as fetchTopics } from 'Redux/modules/topic';
+import { fetchSpeakers, updateSearchParams } from 'appRedux/modules/speaker';
+import { get as fetchTopics } from 'appRedux/modules/topic';
 import { searchForm } from 'appAssets/css/styles.module.css';
 
 import css from 'appAssets/css/header.module.css';
 
-import Autocomplete from 'Components/common/Autocomplete';
+import Autocomplete from 'appCommon/Autocomplete';
 
 class Header extends Component {
   constructor(props) {
