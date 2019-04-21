@@ -9,6 +9,7 @@ import { Link } from 'gatsby';
 
 // APP
 import css from 'appAssets/css/footer.module.css';
+import { COPYRIGHT_TEXT } from '../../utils/constants';
 
 const FullFooter = () => {
   return (
@@ -89,7 +90,7 @@ const FullFooter = () => {
               sm={6}
               className={`${css.alignRight} ${css.alignCenterOnMobile}`}
             >
-              &copy; 2016 - 2018 Women and Color
+              {COPYRIGHT_TEXT}
             </Grid>
           </Grid>
         </Grid>
