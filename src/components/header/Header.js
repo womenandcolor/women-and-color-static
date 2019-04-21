@@ -107,8 +107,8 @@ class Header extends Component {
         <Grid item xs={10} md={8}>
           <h2 className={css.headline}>
             Find talented{' '}
-            <span className={css.highlight}>women and people of color</span>{' '}
-            available for speaking opportunities at tech-related events.
+            <span className={css.highlight}>women, people of color and LGBTQA+</span>{' '}
+            professionals in tech to speak at your next event.
           </h2>
           <Hidden smDown>
             <div className={`${searchForm} ${css.searchForm}`}>
