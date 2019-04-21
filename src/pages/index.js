@@ -19,6 +19,7 @@ import DefaultLayout from '../components/layouts/Default';
 
 import css from 'appAssets/css/index.module.css';
 import ogImage from 'appAssets/images/opengraph.jpg';
+import { DEFAULT_PAGE_DESCRIPTION } from '../utils/constants';
 
 const PAGE_TITLE = 'Women and Color';
 
@@ -60,10 +61,7 @@ const Home = ({
           property="og:image"
           content={`https://www.womenandcolor.com${ogImage}`}
         />
-        <meta
-          property="og:description"
-          content="Find talented women and people of color available for speaking opportunities at tech-related events."
-        />
+        <meta property="og:description" content={DEFAULT_PAGE_DESCRIPTION} />
       </Helmet>
       <Grid container justify="center" spacing={0}>
         <Grid item xs={12}>
@@ -130,7 +128,13 @@ class HomeContainer extends Component {
   };
 
   render() {
+<<<<<<< Updated upstream
     return <Home loadMoreSpeakers={this.loadMoreSpeakers} {...this.props} />;
+=======
+    return (
+      <Home loadMoreSpeakers={this.loadMoreSpeakers} {...this.props} />
+    )
+>>>>>>> Stashed changes
   }
 }
 

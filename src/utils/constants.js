@@ -48,5 +48,5 @@ export const VALID_PARAMS = [
 ];
 
 export const DEFAULT_PAGE_TITLE = "Women and Color";
-export const DEFAULT_PAGE_DESCRIPTION = "Find talented women and people of color available for speaking opportunities at tech-related events.";
+export const DEFAULT_PAGE_DESCRIPTION = "Find talented women, people of color and LGBTQA+ professionals in tech to speak at your next event.";
 export const COPYRIGHT_TEXT = "\u00A9 2016 - 2019 Women and Color All Rights Reserved";

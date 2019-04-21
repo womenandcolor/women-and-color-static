@@ -6,19 +6,19 @@ import { header } from 'appAssets/css/styles.module.css'
 import DefaultLayout from '../components/layouts/Default'
 import { Helmet } from 'react-helmet';
 import ogImage from 'appAssets/images/opengraph.jpg';
-
+import { DEFAULT_PAGE_DESCRIPTION } from '../utils/constants';
 
 const PAGE_TITLE = 'Terms of Use';
 
 const Terms = props => {
-  return(
+  return (
     <DefaultLayout title={PAGE_TITLE}  {...props}>
       <Helmet>
         <meta property="og:title" content={PAGE_TITLE} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.womenandcolor.com/" />
         <meta property="og:image" content={`https://www.womenandcolor.com${ogImage}`} />
-        <meta property="og:description" content="Find talented women and people of color available for speaking opportunities at tech-related events." />
+        <meta property="og:description" content={DEFAULT_PAGE_DESCRIPTION} />
       </Helmet>
       <Grid container justify="center">
         <Grid item xs={11} md={9}>

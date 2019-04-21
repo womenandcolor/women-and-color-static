@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Women and Color',
-    description:
-      'Find talented women and people of color available for speaking opportunities at tech-related events.',
+    description: 'Find talented women, people of color and LGBTQA+ professionals in tech to speak at your next event.',
     siteUrl: process.env.WEBSITE_URL,
   },
   plugins: [
