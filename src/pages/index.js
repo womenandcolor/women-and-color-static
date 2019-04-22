@@ -128,13 +128,7 @@ class HomeContainer extends Component {
   };
 
   render() {
-<<<<<<< Updated upstream
     return <Home loadMoreSpeakers={this.loadMoreSpeakers} {...this.props} />;
-=======
-    return (
-      <Home loadMoreSpeakers={this.loadMoreSpeakers} {...this.props} />
-    )
->>>>>>> Stashed changes
   }
 }
 
