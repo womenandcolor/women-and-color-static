@@ -19,6 +19,7 @@ import css from 'appAssets/css/accounts.module.css';
 import ogImage from 'appAssets/images/opengraph.jpg';
 
 import { Helmet } from 'react-helmet'
+import { DEFAULT_PAGE_DESCRIPTION } from '../utils/constants';
 
 const PAGE_TITLE = "Confirm reset password"
 
@@ -27,17 +28,17 @@ const ConfirmPasswordReset = ({ handleUserInputChange, handleSubmit, user, ...re
     return (event) => { handleUserInputChange(fieldName, event.currentTarget.value) }
   }
 
-  return(
+  return (
     <DefaultLayout title={PAGE_TITLE} {...rest}>
       <Helmet>
         <meta property="og:title" content={PAGE_TITLE} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.womenandcolor.com/" />
         <meta property="og:image" content={`https://www.womenandcolor.com${ogImage}`} />
-        <meta property="og:description" content="Find talented women and people of color available for speaking opportunities at tech-related events." />
+        <meta property="og:description" content={DEFAULT_PAGE_DESCRIPTION} />
       </Helmet>
       <AccountFormContainer>
-        <form onSubmit={ handleSubmit }>
+        <form onSubmit={handleSubmit}>
           <h1 className={css.title}>Enter your new password</h1>
 
           <FormField fullWidth className={css.formControl}>
@@ -85,7 +86,7 @@ class ConfirmPasswordResetContainer extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <ConfirmPasswordReset
           handleSubmit={event => {

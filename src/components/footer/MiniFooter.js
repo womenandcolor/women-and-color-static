@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 
 // APP
 import css from 'appAssets/css/footer.module.css';
+import { COPYRIGHT_TEXT } from '../../utils/constants';
 
 const MiniFooter = () => {
   return (
@@ -17,7 +18,7 @@ const MiniFooter = () => {
               <a href="/code-of-conduct">Code of Conduct</a>
             </Grid>
             <Grid item xs={12} md={6} className={`${css.alignRight} ${css.alignCenterOnMobile}`}>
-              &copy; 2016 - 2018 Women and Color
+              {COPYRIGHT_TEXT}
             </Grid>
           </Grid>
         </Grid>

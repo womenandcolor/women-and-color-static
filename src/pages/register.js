@@ -1,5 +1,5 @@
 // Project
-import React, { Component }  from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'gatsby'
 import TextField from '@material-ui/core/TextField';
@@ -18,6 +18,7 @@ import DefaultLayout from '../components/layouts/Default'
 import css from 'appAssets/css/accounts.module.css';
 import ogImage from 'appAssets/images/opengraph.jpg';
 import { Helmet } from 'react-helmet'
+import { DEFAULT_PAGE_DESCRIPTION } from '../utils/constants';
 
 const CURRENT_PAGE = 'registration';
 const PAGE_TITLE = 'Sign up'
@@ -27,29 +28,29 @@ const Register = ({ handleSubmit, handleUserInputChange, ...rest }) => {
     return (event) => { handleUserInputChange(fieldName, event.currentTarget.value) }
   }
 
-  return(
+  return (
     <DefaultLayout title={PAGE_TITLE} {...rest}>
       <Helmet>
         <meta property="og:title" content={PAGE_TITLE} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.womenandcolor.com/" />
         <meta property="og:image" content={`https://www.womenandcolor.com${ogImage}`} />
-        <meta property="og:description" content="Find talented women and people of color available for speaking opportunities at tech-related events." />
+        <meta property="og:description" content={DEFAULT_PAGE_DESCRIPTION} />
       </Helmet>
       <AccountFormContainer>
-        <form onSubmit={ handleSubmit }>
+        <form onSubmit={handleSubmit}>
           <h1 className={css.title}>{PAGE_TITLE}</h1>
 
-          <FormField fullWidth className={ css.formControl }>
-            <TextField label="Email" type="email" onChange={ generateHandlerUser('email') } />
+          <FormField fullWidth className={css.formControl}>
+            <TextField label="Email" type="email" onChange={generateHandlerUser('email')} />
           </FormField>
 
-          <FormField fullWidth className={ css.formControl }>
-            <TextField label="Password" type="password" onChange={ generateHandlerUser('password1') } />
+          <FormField fullWidth className={css.formControl}>
+            <TextField label="Password" type="password" onChange={generateHandlerUser('password1')} />
           </FormField>
 
-          <FormField fullWidth className={ css.formControl }>
-            <TextField label="Password Confirmation" type="password" onChange={ generateHandlerUser('password2') } />
+          <FormField fullWidth className={css.formControl}>
+            <TextField label="Password Confirmation" type="password" onChange={generateHandlerUser('password2')} />
           </FormField>
 
           <Grid container justify="space-between" className={css.actions}>
@@ -78,7 +79,7 @@ class RegisterContainer extends Component {
   }
 
   render() {
-    return(
+    return (
       <Register
         handleSubmit={event => {
           event.preventDefault();
